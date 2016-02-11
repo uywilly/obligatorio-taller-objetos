@@ -5,9 +5,7 @@ using System.Web;
 
 namespace TallerObjetos
 {
-    public class Destino
+    public class Contrato
     {
-        private string nombre;
-        private int costo;
     }
 }

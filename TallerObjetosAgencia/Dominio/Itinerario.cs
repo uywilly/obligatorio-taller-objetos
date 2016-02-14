@@ -19,6 +19,13 @@ namespace Dominio
             this.costoDiario = 0;
             this.destino = null;
         }
+        public Itinerario(byte diasEstadia, decimal costoDiario, Destino destino)
+        {
+            this.diasEstadia = diasEstadia;
+            this.costoDiario = costoDiario;
+            this.destino = destino;
+            
+        }
         #endregion
         
         #region Properties
@@ -44,10 +51,10 @@ namespace Dominio
         {
             return "";
         }
-        //public override bool Equals(object obj)
-        //{
-        //    return base.Equals(obj);
-        //}
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
         #endregion
         
         #region ENUM-ERRORES

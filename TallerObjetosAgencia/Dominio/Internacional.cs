@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Contrato
+    public class Internacional:Excurcion
     {
-        #region Constructor 
+        #region Constructor
 
         #endregion
-        
+
         #region Properties
 
         #endregion
-        
+
         #region ToString-Equals
 
         #endregion
-        
+
         #region ENUM-ERRORES
         public enum ErroresAltaBandeja
         {

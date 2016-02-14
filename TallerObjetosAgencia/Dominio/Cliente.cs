@@ -6,47 +6,45 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Destino
+    public class Cliente
     {
         private string nombre;
-        private string ciudad;
-        private string pais;
+        private string apellido;
+        private string ci;       
 
-        #region Constructor 
-        public Destino()
+        #region Constructor
+        public Cliente()
         {
             this.nombre = "";
-            this.ciudad = "";
-            this.pais = "";
-
+            this.apellido = "";
+            this.ci = "";
         }
-        public Destino(string nombre, string ciudad, string pais)
+        public Cliente(string nombre, string apellido, string ci)
         {
             this.nombre = nombre;
-            this.ciudad = ciudad;
-            this.pais = pais;
+            this.apellido = apellido;
+            this.ci = ci;
         }
         #endregion
-        
+
         #region Properties
         public string Nombre
         {
-            set { this.nombre = value; }
             get { return this.nombre; }
+            set { this.nombre = value; }
         }
-        public string Ciudad
+        public string Apellido
         {
-            set { this.ciudad = value; }
-            get { return this.ciudad; }
+            get { return this.apellido; }
+            set { this.apellido = value; }
         }
-        public string Pais
+        public string Ci
         {
-            set { this.pais = value; }
-            get { return this.pais; }
+            get { return this.ci; }
+            set { this.ci = value; }
         }
-
         #endregion
-        
+
         #region ToString-Equals
         public override string ToString()
         {
@@ -57,14 +55,14 @@ namespace Dominio
             return base.Equals(obj);
         }
         #endregion
-        
+
         #region ENUM-ERRORES
         public enum ErroresAltaBandeja
         {
             EXITO,
             ERR_NOMBRE,
-            ERR_CIUDAD,
-            ERR_PAIS,
+            ERR_APELLIDO,
+            ERR_CI,
         }
         #endregion
     }

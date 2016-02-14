@@ -6,14 +6,25 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Internacional:Excurcion
+    public class Internacional : Excurcion
     {
+        private static double seguro;
+        
         #region Constructor
+            public Internacional()
+            : base()
+        {
+
+        }
 
         #endregion
-
+        
         #region Properties
-
+            public static double Seguro
+            {
+                get { return Internacional.seguro; }
+                set { Internacional.seguro = value; }
+            }
         #endregion
 
         #region ToString-Equals

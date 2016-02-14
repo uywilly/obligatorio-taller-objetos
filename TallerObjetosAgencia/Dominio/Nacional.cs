@@ -11,7 +11,15 @@ namespace Dominio
         private double descuento;
 
         #region Constructor
-
+        public Nacional()
+            : base()
+        {
+        }
+        public Nacional(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros, double descuento)
+                : base( codigo,  descripcion,  fechaComienzo,  hojaRuta,  diasTraslado,  stock,  puntos,  pasajeros)
+            {
+                this.descuento = descuento;
+            }
         #endregion
 
         #region Properties

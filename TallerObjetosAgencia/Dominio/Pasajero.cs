@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Pasajero
+    public class Pasajero 
     {
+        // FALTA AGREGAR atributo autogenerado
         private string nombre;
         private string apellido;
         private string ci;

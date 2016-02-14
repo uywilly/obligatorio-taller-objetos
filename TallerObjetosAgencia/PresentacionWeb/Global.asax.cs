@@ -12,11 +12,13 @@ namespace PresentacionWeb
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            this.CargarDatosPrueba();
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
+            //VARIABLES DE SESION
+            //Session["rol"] = null;
 
         }
 
@@ -32,6 +34,9 @@ namespace PresentacionWeb
 
         protected void Application_Error(object sender, EventArgs e)
         {
+            //REDIRECCION EN CASO DE ERROR
+            Exception ex = Server.GetLastError();
+            Response.Redirect("Error.aspx?err=" + ex.InnerException.Message);
 
         }
 
@@ -44,5 +49,7 @@ namespace PresentacionWeb
         {
 
         }
+        private void CargarDatosPrueba()
+        { }
     }
 }

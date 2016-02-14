@@ -11,11 +11,11 @@ namespace Dominio
         private static double seguro;
         
         #region Constructor
-            public Internacional()
-            : base()
-        {
+            public Internacional(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros)
+                : base( codigo,  descripcion,  fechaComienzo,  hojaRuta,  diasTraslado,  stock,  puntos,  pasajeros)
+            {
 
-        }
+            }
 
         #endregion
         
@@ -28,17 +28,17 @@ namespace Dominio
         #endregion
 
         #region ToString-Equals
-
+            public override string ToString()
+            {
+                return "";
+            }
+            public override bool Equals(object obj)
+            {
+                return base.Equals(obj);
+            }
         #endregion
 
         #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
-        {
-            EXITO,
-            ERR_NOMBRE,
-            ERR_CIUDAD,
-            ERR_PAIS,
-        }
         #endregion
     }
 }

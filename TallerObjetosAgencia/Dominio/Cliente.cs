@@ -6,44 +6,25 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Cliente
+    public class Cliente : Rol
     {
-        private string nombre;
-        private string apellido;
-        private string ci;       
+        #region Properties
+        public string DireccionFactura { get; set; }
+        #endregion
+        
 
         #region Constructor
-        public Cliente()
+        public Cliente():base()
         {
-            this.nombre = "";
-            this.apellido = "";
-            this.ci = "";
+            this.DireccionFactura = "";
         }
-        public Cliente(string nombre, string apellido, string ci)
+        public Cliente(string nombre, string apellido, string ci, string direccionFactura):base(nombre, apellido, ci)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.ci = ci;
+            this.DireccionFactura = direccionFactura;
         }
         #endregion
 
-        #region Properties
-        public string Nombre
-        {
-            get { return this.nombre; }
-            set { this.nombre = value; }
-        }
-        public string Apellido
-        {
-            get { return this.apellido; }
-            set { this.apellido = value; }
-        }
-        public string Ci
-        {
-            get { return this.ci; }
-            set { this.ci = value; }
-        }
-        #endregion
+        
 
         #region ToString-Equals
         public override string ToString()
@@ -57,12 +38,10 @@ namespace Dominio
         #endregion
 
         #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
-        {
+        public enum ErroresAltaCLiente
+        { 
             EXITO,
-            ERR_NOMBRE,
-            ERR_APELLIDO,
-            ERR_CI,
+            ERR_DIR
         }
         #endregion
     }

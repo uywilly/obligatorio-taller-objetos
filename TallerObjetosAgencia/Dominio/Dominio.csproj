@@ -48,7 +48,9 @@
     <Compile Include="Itinerario.cs" />
     <Compile Include="Nacional.cs" />
     <Compile Include="Pasajero.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rol.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

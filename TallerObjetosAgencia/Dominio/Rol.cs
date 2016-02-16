@@ -6,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Pasajero : Rol
+    public abstract class Rol
     {
-        
+
         #region Properties
-        public double Puntos { get; set; }
+        public Persona Persona { get; set; }
         #endregion
 
         #region Constructor
-        public Pasajero():base()
+        public Rol()
         {
-            this.Puntos = 0;
+            this.Persona = null;
         }
-        public Pasajero(string nombre, string apellido, string ci, double puntos):base(nombre, apellido, ci)
+        public Rol(Persona persona)
         {
-            this.Puntos = puntos;
+            this.Persona = persona;
+        }
+        public Rol(string nombre, string apellido, string ci)
+        {
+            this.Persona = new Persona(nombre, apellido, ci);
         }
         #endregion
-
-       
 
         #region ToString-Equals
         public override string ToString()
@@ -36,15 +38,6 @@ namespace Dominio
             return base.Equals(obj);
         }
         #endregion
-
-        #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
-        {
-            EXITO,
-            ERR_NOMBRE,
-            ERR_APELLIDO,
-            ERR_CI,
-        }
-        #endregion
+        
     }
 }

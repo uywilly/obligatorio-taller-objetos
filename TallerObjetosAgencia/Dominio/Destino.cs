@@ -59,7 +59,7 @@ namespace Dominio
         #endregion
         
         #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
+        public enum ErroresAltaDestino
         {
             EXITO,
             ERR_NOMBRE,

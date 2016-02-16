@@ -6,25 +6,30 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Pasajero : Rol
+    public class Persona
     {
-        
         #region Properties
-        public double Puntos { get; set; }
-        #endregion
 
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Ci { get; set; }
+        
+        #endregion
+        
         #region Constructor
-        public Pasajero():base()
+        public Persona()
         {
-            this.Puntos = 0;
+            this.Nombre = "";
+            this.Apellido = "";
+            this.Ci = "";
         }
-        public Pasajero(string nombre, string apellido, string ci, double puntos):base(nombre, apellido, ci)
+        public Persona(string nombre, string apellido, string ci)
         {
-            this.Puntos = puntos;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Ci = ci;
         }
         #endregion
-
-       
 
         #region ToString-Equals
         public override string ToString()
@@ -38,12 +43,12 @@ namespace Dominio
         #endregion
 
         #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
+        public enum ErroresAltaPersona
         {
             EXITO,
             ERR_NOMBRE,
             ERR_APELLIDO,
-            ERR_CI,
+            ERR_CI
         }
         #endregion
     }

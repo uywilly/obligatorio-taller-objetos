@@ -12,7 +12,6 @@ namespace Dominio
         public string DireccionFactura { get; set; }
         #endregion
         
-
         #region Constructor
         public Cliente():base()
         {
@@ -23,9 +22,7 @@ namespace Dominio
             this.DireccionFactura = direccionFactura;
         }
         #endregion
-
-        
-
+       
         #region ToString-Equals
         public override string ToString()
         {

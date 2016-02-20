@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,46 +7,33 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Itinerario
+    public class Itinerario:IEntity
     {
-        private byte diasEstadia;
-        private decimal costoDiario;
-        private Destino destino;
+        #region Properties
+        public byte DiasEstadia { get; set; }
+        public decimal CostoDiario { get; set; }
+        public Destino Destino { get; set; }
+        public int Id { get; set; }
 
-        #region Constructor 
+        #endregion
+
+        #region Constructor
         public Itinerario()
         {
-            this.diasEstadia = 0;
-            this.costoDiario = 0;
-            this.destino = null;
+            this.DiasEstadia = 0;
+            this.CostoDiario = 0;
+            this.Destino = null;
         }
         public Itinerario(byte diasEstadia, decimal costoDiario, Destino destino)
         {
-            this.diasEstadia = diasEstadia;
-            this.costoDiario = costoDiario;
-            this.destino = destino;
-            
+            this.DiasEstadia = diasEstadia;
+            this.CostoDiario = costoDiario;
+            this.Destino = destino;
+
         }
         #endregion
-        
-        #region Properties
-        public byte DiasEstadia
-        {
-            get { return this.diasEstadia; }
-            set { this.diasEstadia = value; }
-        }
-        public decimal CostoDiario
-        {
-            get { return this.costoDiario; }
-            set { this.costoDiario = value; }
-        }
-        internal Destino Destino
-        {
-            get { return this.destino; }
-            set { this.destino = value; }
-        }
-        #endregion
-        
+
+
         #region ToString-Equals
         public override string ToString()
         {

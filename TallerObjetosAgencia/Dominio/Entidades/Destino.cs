@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,44 +7,30 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Destino
+    public class Destino:IEntity
     {
-        private string nombre;
-        private string ciudad;
-        private string pais;
 
         #region Constructor 
         public Destino()
         {
-            this.nombre = "";
-            this.ciudad = "";
-            this.pais = "";
+            this.Nombre = "";
+            this.Ciudad = "";
+            this.Pais = "";
 
         }
         public Destino(string nombre, string ciudad, string pais)
         {
-            this.nombre = nombre;
-            this.ciudad = ciudad;
-            this.pais = pais;
+            this.Nombre = nombre;
+            this.Ciudad = ciudad;
+            this.Pais = pais;
         }
         #endregion
         
         #region Properties
-        public string Nombre
-        {
-            set { this.nombre = value; }
-            get { return this.nombre; }
-        }
-        public string Ciudad
-        {
-            set { this.ciudad = value; }
-            get { return this.ciudad; }
-        }
-        public string Pais
-        {
-            set { this.pais = value; }
-            get { return this.pais; }
-        }
+        public string Nombre { get; set; }
+        public string Ciudad { get; set; }
+        public string Pais { get; set; }
+        public int Id { get; set; }
 
         #endregion
         

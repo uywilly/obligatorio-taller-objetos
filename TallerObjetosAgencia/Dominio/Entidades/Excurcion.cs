@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,84 +9,46 @@ namespace Dominio
 {
     public class Excurcion
     {
-        private string codigo;
-        private string descripcion;
-        private DateTime fechaComienzo;
-        private List<Itinerario> hojaRuta;
-        private byte diasTraslado;
-        private byte stock;
-        private double puntos;
-        private List<Pasajero> pasajeros;
        
+       
+
+
+        #region Properties
+        public string Codigo { get; set; }
+        public string Descripcion { get; set; }
+        public DateTime FechaComienzo { get; set; }
+        public List<Itinerario> HojaRuta { get; set; }
+        public byte DiasTraslado { get; set; }
+        public byte Stock { get; set; }
+        public double Puntos { get; set; }
+        public List<Pasajero> Pasajeros { get; set; }
+        public int Id { get; set; }
+        #endregion
+
         #region Constructor
         public Excurcion()
         {
-            this.codigo = "";
-            this.descripcion = "";
-            this.fechaComienzo = System.DateTime.Today;
-            this.hojaRuta = null;
-            this.diasTraslado = 0;
-            this.stock = 0;
-            this.puntos = 0;
-            this.pasajeros = null;
+            this.Codigo = "";
+            this.Descripcion = "";
+            this.FechaComienzo = System.DateTime.Today;
+            this.HojaRuta = null;
+            this.DiasTraslado = 0;
+            this.Stock = 0;
+            this.Puntos = 0;
+            this.Pasajeros = null;
         }
         public Excurcion(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros)
         {
-            this.codigo = codigo;
-            this.descripcion = descripcion;
-            this.fechaComienzo = fechaComienzo;
-            this.hojaRuta = hojaRuta;
-            this.diasTraslado = diasTraslado;
-            this.stock = stock;
-            this.puntos = puntos;
-            this.pasajeros = pasajeros;
+            this.Codigo = codigo;
+            this.Descripcion = descripcion;
+            this.FechaComienzo = fechaComienzo;
+            this.HojaRuta = hojaRuta;
+            this.DiasTraslado = diasTraslado;
+            this.Stock = stock;
+            this.Puntos = puntos;
+            this.Pasajeros = pasajeros;
         }
 
-       
-
-        #endregion
-
-        #region Properties
-        public string Codigo
-        {
-            get { return this.codigo; }
-            set { this.codigo = value; }
-        }
-        public string Descripcion
-        {
-            get { return this.descripcion; }
-            set { this.descripcion = value; }
-        }
-        public DateTime FechaComienzo
-        {
-            get { return this.fechaComienzo; }
-            set { this.fechaComienzo = value; }
-        }
-        public List<Itinerario> HojaRuta
-        {
-            get { return this.hojaRuta; }
-            set { this.hojaRuta = value; }
-        }
-        public byte DiasTraslado
-        {
-            get { return this.diasTraslado; }
-            set { this.diasTraslado = value; }
-        }
-        public byte Stock
-        {
-            get { return this.stock; }
-            set { this.stock = value; }
-        }
-        public double Puntos
-        {
-            get { return this.puntos; }
-            set { this.puntos = value; }
-        }
-        public List<Pasajero> Pasajeros
-        {
-            get { return this.pasajeros; }
-            set { this.pasajeros = value; }
-        }
 
 
         #endregion

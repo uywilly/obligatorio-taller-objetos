@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Persona
+    public class Persona:IEntity
     {
         #region Properties
 
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Ci { get; set; }
+        public int Id { get; set; }
         
         #endregion
         

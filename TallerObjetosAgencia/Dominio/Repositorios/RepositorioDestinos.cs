@@ -7,7 +7,7 @@ using Dominio.Entidades;
 
 namespace Dominio.Repositorios
 {
-    class RepositorioDestinos:IRepositorio<Destino>
+    public class RepositorioDestinos:IRepositorio<Destino>
     {
         private IList<Destino> listaDestinos = new List<Destino>();
 

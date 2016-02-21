@@ -7,11 +7,12 @@ using Dominio.Entidades;
 
 namespace Dominio.Repositorios
 {
-    class RepositorioPasajero : IRepositorio<Pasajero>
+    public class RepositorioPasajeros : IRepositorio<Pasajero>
     {
+        private IList<Pasajero> listaPasajeros = new List<Pasajero>();
         public IEnumerable<Pasajero> List
         {
-            get { throw new NotImplementedException(); }
+            get { return this.listaPasajeros; }
         }
 
         public bool Add(Pasajero entity)

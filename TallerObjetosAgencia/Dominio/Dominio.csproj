@@ -53,10 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Repositorios\RepositorioCliente.cs" />
-    <Compile Include="Repositorios\RepositorioContrato.cs" />
+    <Compile Include="Repositorios\RepositorioClientes.cs" />
+    <Compile Include="Repositorios\RepositorioContratos.cs" />
     <Compile Include="Repositorios\RepositorioDestinos.cs" />
-    <Compile Include="Repositorios\RepositorioPasajero.cs" />
+    <Compile Include="Repositorios\RepositorioPasajeros.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

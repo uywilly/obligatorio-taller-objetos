@@ -7,11 +7,12 @@ using Dominio.Entidades;
 
 namespace Dominio.Repositorios
 {
-    class RepositorioCliente : IRepositorio<Cliente>
+    public class RepositorioClientes : IRepositorio<Cliente>
     {
+        private IList<Cliente> listaClientes = new List<Cliente>();
         public IEnumerable<Cliente> List
         {
-            get { throw new NotImplementedException(); }
+            get { return this.listaClientes; }
         }
 
         public bool Add(Cliente entity)

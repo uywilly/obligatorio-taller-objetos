@@ -39,6 +39,7 @@ namespace Dominio
         #endregion
 
         #region ENUM-ERRORES
+        
         public enum ErroresAltaBandeja
         {
             EXITO,

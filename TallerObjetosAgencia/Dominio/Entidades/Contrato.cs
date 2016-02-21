@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio.Entidades;
 
 namespace Dominio
 {
@@ -14,6 +15,8 @@ namespace Dominio
         #endregion
         
         #region Properties
+        public Excurcion Excurcion { get; set; }
+        public List<Rol> ListaRoles { get; set; }
         public int Id { get; set; }
         #endregion
         
@@ -22,12 +25,17 @@ namespace Dominio
         #endregion
         
         #region ENUM-ERRORES
+        public bool Validar()
+        {
+            bool retorno = false;
+            return retorno;
+        }
+
         public enum ErroresAltaBandeja
         {
             EXITO,
-            ERR_NOMBRE,
-            ERR_CIUDAD,
-            ERR_PAIS,
+            ERR_EXCURCION,
+
         }
         #endregion
     }

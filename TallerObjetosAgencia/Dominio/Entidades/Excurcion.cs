@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Excurcion
+    public abstract class Excurcion: IEntity
     {
-       
-       
-
 
         #region Properties
         public string Codigo { get; set; }
@@ -64,7 +61,34 @@ namespace Dominio
         }
         #endregion
 
-        #region ENUM-ERRORES
+        #region Validaciones
+        public static bool Validar()
+        {
+            return (!string.IsNullOrEmpty(this.Codigo.Trim())
+                && !string.IsNullOrEmpty(this.Descripcion.Trim())
+                && DateTime.Compare(this.FechaComienzo, DateTime.Today) >= 0
+                && this.HojaRuta != null
+                && this.DiasTraslado >= 0
+                && this.Stock > 0
+                && this.Puntos > 0
+                && this.Pasajeros != null);
+        }
+        public static List<Excurcion.ErroresAltaBandeja> Validar2()
+        {
+            List<Excurcion.ErroresAltaBandeja> retorno = new List<Excurcion.ErroresAltaBandeja>();
+            if(string.IsNullOrEmpty(this.Codigo.Trim())) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_CODIGO);
+            if(string.IsNullOrEmpty(this.Descripcion.Trim())) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_DESCRIPCION);
+            if( DateTime.Compare(FechaComienzo, DateTime.Today) < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_FECHA);
+            if(this.HojaRuta == null) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_RUTA);
+            if(this.DiasTraslado < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_DIAS_TRASLADO);
+            if(this.Stock < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_STOCK);
+            if(this.Puntos < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_PUNTOS);
+            if(this.Pasajeros == null) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_PASAJEROS);
+            if(retorno.Count == 0) retorno.Add(Excurcion.ErroresAltaBandeja.EXITO);
+
+            return retorno;
+        }
+
         public enum ErroresAltaBandeja
         {
             EXITO,

@@ -45,7 +45,24 @@ namespace Dominio
         }
         #endregion
         
-        #region ENUM-ERRORES
+        #region Validaciones
+        public bool Validar()
+        {
+            return (!string.IsNullOrEmpty(this.Nombre.Trim())
+                 && !string.IsNullOrEmpty(this.Ciudad.Trim())
+                 && !string.IsNullOrEmpty(this.Pais.Trim())
+                 );
+        }
+        public List<Destino.ErroresAltaDestino> Validar2()
+        {
+            List<Destino.ErroresAltaDestino> retorno = new List<Destino.ErroresAltaDestino>();
+            if (string.IsNullOrEmpty(this.Nombre.Trim())) retorno.Add(Destino.ErroresAltaDestino.ERR_NOMBRE);
+            if (string.IsNullOrEmpty(this.Ciudad.Trim())) retorno.Add(Destino.ErroresAltaDestino.ERR_CIUDAD);
+            if (string.IsNullOrEmpty(this.Pais.Trim())) retorno.Add(Destino.ErroresAltaDestino.ERR_PAIS);
+            if (retorno.Count == 0) retorno.Add(Destino.ErroresAltaDestino.EXITO);
+            return retorno;
+        }
+
         public enum ErroresAltaDestino
         {
             EXITO,

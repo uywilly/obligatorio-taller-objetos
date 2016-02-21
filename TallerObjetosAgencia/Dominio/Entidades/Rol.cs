@@ -15,6 +15,19 @@ namespace Dominio
         public int Id { get; set; }
         #endregion
 
+        #region Validaciones
+        public abstract List<Rol.ErroresAltaRol> Validar();
+        
+        public enum ErroresAltaRol
+        {
+            EXITO,
+            ERR_PERSONA,
+            ERR_PUNTOS,
+            ERR_DIR_ENVIO
+        }
+        #endregion
+        
+
         #region Constructor
         public Rol()
         {

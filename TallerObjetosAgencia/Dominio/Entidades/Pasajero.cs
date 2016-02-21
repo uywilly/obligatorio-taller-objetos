@@ -38,14 +38,20 @@ namespace Dominio
         }
         #endregion
 
-        #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
+        #region validaciones
+        public override List<Rol.ErroresAltaRol> Validar()
         {
-            EXITO,
-            ERR_NOMBRE,
-            ERR_APELLIDO,
-            ERR_CI,
+            List<Rol.ErroresAltaRol> retorno = new List<ErroresAltaRol>();
+            if(!Double.IsNaN(this.Puntos)) 
+                retorno.Add(Rol.ErroresAltaRol.ERR_PUNTOS);
+            if (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO) && retorno.Count==0 )
+            {
+                retorno.Add(Rol.ErroresAltaRol.EXITO);
+            }
+
+            return retorno;
         }
+
         #endregion
     }
 }

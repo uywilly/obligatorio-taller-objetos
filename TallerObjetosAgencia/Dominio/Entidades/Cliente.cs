@@ -35,12 +35,20 @@ namespace Dominio
         }
         #endregion
 
-        #region ENUM-ERRORES
-        public enum ErroresAltaCLiente
-        { 
-            EXITO,
-            ERR_DIR
+        #region validaciones
+        public override List<Rol.ErroresAltaRol> Validar()
+        {
+            List<Rol.ErroresAltaRol> retorno = new List<ErroresAltaRol>();
+            if (string.IsNullOrEmpty(this.DireccionFactura.Trim()))
+                retorno.Add(Rol.ErroresAltaRol.ERR_DIR_ENVIO);
+            if (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO) && retorno.Count == 0)
+            {
+                retorno.Add(Rol.ErroresAltaRol.EXITO);
+            }
+
+            return retorno;
         }
+
         #endregion
     }
 }

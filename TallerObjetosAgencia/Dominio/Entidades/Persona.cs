@@ -9,6 +9,15 @@ namespace Dominio
 {
     public class Persona:IEntity
     {
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
         #region Properties
 
         public string Nombre { get; set; }

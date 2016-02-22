@@ -9,6 +9,15 @@ namespace Dominio
 {
     public class Cliente : Rol, IEntity  
     {
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
         #region Properties
         public string DireccionFactura { get; set; }
         #endregion
@@ -35,13 +44,17 @@ namespace Dominio
         }
         #endregion
 
-        #region validaciones
-        public override List<Rol.ErroresAltaRol> Validar()
+        #region Validaciones
+        public override bool Validar()
         {
-            List<Rol.ErroresAltaRol> retorno = new List<ErroresAltaRol>();
+            return base.Validar() && !(string.IsNullOrEmpty(this.DireccionFactura.Trim()));
+        }
+        public override List<Rol.ErroresAltaRol> Validar2()
+        {
+            List<Rol.ErroresAltaRol> retorno = new  List<Rol.ErroresAltaRol>();
             if (string.IsNullOrEmpty(this.DireccionFactura.Trim()))
                 retorno.Add(Rol.ErroresAltaRol.ERR_DIR_ENVIO);
-            if (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO) && retorno.Count == 0)
+            if (base.Validar2().Contains(Rol.ErroresAltaRol.EXITO) && retorno.Count == 0)
             {
                 retorno.Add(Rol.ErroresAltaRol.EXITO);
             }

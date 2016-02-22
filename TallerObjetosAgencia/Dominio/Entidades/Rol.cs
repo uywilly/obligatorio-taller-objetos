@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public abstract class Rol:IEntity
+    public abstract class Rol : IEntity
     {
+         /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
 
         #region Properties
         public Persona Persona { get; set; }
@@ -16,7 +25,19 @@ namespace Dominio
         #endregion
 
         #region Validaciones
-        public abstract List<Rol.ErroresAltaRol> Validar();
+        public virtual bool Validar()
+        {
+            return (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO));
+        }
+        public virtual List<Rol.ErroresAltaRol> Validar2()
+        {
+            List<Rol.ErroresAltaRol> retorno = new List<ErroresAltaRol>();
+            if (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO))
+                retorno.Add(Rol.ErroresAltaRol.EXITO);
+            else retorno.Add(Rol.ErroresAltaRol.ERR_PERSONA);
+            
+            return retorno;
+        }
         
         public enum ErroresAltaRol
         {
@@ -27,7 +48,6 @@ namespace Dominio
         }
         #endregion
         
-
         #region Constructor
         public Rol()
         {

@@ -9,7 +9,15 @@ namespace Dominio
 {
     public class Nacional : Excurcion, IEntity
     {
-
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
         #region Properties
         public double Descuento { get; set; }
        
@@ -38,13 +46,25 @@ namespace Dominio
         }
         #endregion
 
-        #region ENUM-ERRORES
-        
-        public enum ErroresAltaBandeja
+        #region Validaciones
+        public override bool Validar()
         {
-            EXITO,
-            ERR_DESCUENTO,
+            return (base.Validar() && !Double.IsNaN(this.Descuento) && this.Descuento > 0);
         }
+        public override List<Excurcion.ErroresAltaExcurcion> Validar2()
+        {
+            List<Excurcion.ErroresAltaExcurcion> retorno = new List<Excurcion.ErroresAltaExcurcion>();
+            if (base.Validar2().Contains(Excurcion.ErroresAltaExcurcion.EXITO) && !Double.IsNaN(this.Descuento) && this.Descuento > 0)
+            {
+                retorno.Add(ErroresAltaExcurcion.EXITO);
+                return retorno; 
+            }
+            else retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_DESCUENTO);
+            return retorno;
+        }
+
+
+
         #endregion
     }
 }

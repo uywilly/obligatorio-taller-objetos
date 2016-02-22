@@ -33,7 +33,6 @@ namespace Dominio
         }
         #endregion
 
-
         #region ToString-Equals
         public override string ToString()
         {

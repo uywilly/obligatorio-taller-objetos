@@ -9,6 +9,15 @@ namespace Dominio
 {
     public class Destino:IEntity
     {
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
 
         #region Constructor 
         public Destino()

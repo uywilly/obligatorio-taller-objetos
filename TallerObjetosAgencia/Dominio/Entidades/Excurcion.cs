@@ -9,7 +9,15 @@ namespace Dominio
 {
     public abstract class Excurcion: IEntity
     {
-
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
         #region Properties
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
@@ -62,7 +70,7 @@ namespace Dominio
         #endregion
 
         #region Validaciones
-        public static bool Validar()
+        public virtual bool Validar()
         {
             return (!string.IsNullOrEmpty(this.Codigo.Trim())
                 && !string.IsNullOrEmpty(this.Descripcion.Trim())
@@ -73,23 +81,23 @@ namespace Dominio
                 && this.Puntos > 0
                 && this.Pasajeros != null);
         }
-        public static List<Excurcion.ErroresAltaBandeja> Validar2()
+        public virtual List<Excurcion.ErroresAltaExcurcion> Validar2()
         {
-            List<Excurcion.ErroresAltaBandeja> retorno = new List<Excurcion.ErroresAltaBandeja>();
-            if(string.IsNullOrEmpty(this.Codigo.Trim())) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_CODIGO);
-            if(string.IsNullOrEmpty(this.Descripcion.Trim())) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_DESCRIPCION);
-            if( DateTime.Compare(FechaComienzo, DateTime.Today) < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_FECHA);
-            if(this.HojaRuta == null) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_RUTA);
-            if(this.DiasTraslado < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_DIAS_TRASLADO);
-            if(this.Stock < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_STOCK);
-            if(this.Puntos < 0) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_PUNTOS);
-            if(this.Pasajeros == null) retorno.Add(Excurcion.ErroresAltaBandeja.ERR_PASAJEROS);
-            if(retorno.Count == 0) retorno.Add(Excurcion.ErroresAltaBandeja.EXITO);
+            List<Excurcion.ErroresAltaExcurcion> retorno = new List<Excurcion.ErroresAltaExcurcion>();
+            if(string.IsNullOrEmpty(this.Codigo.Trim())) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_CODIGO);
+            if(string.IsNullOrEmpty(this.Descripcion.Trim())) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_DESCRIPCION);
+            if( DateTime.Compare(FechaComienzo, DateTime.Today) < 0) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_FECHA);
+            if(this.HojaRuta == null) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_RUTA);
+            if(this.DiasTraslado < 0) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_DIAS_TRASLADO);
+            if(this.Stock < 0) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_STOCK);
+            if(this.Puntos < 0) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_PUNTOS);
+            if(this.Pasajeros == null) retorno.Add(Excurcion.ErroresAltaExcurcion.ERR_PASAJEROS);
+            if(retorno.Count == 0) retorno.Add(Excurcion.ErroresAltaExcurcion.EXITO);
 
             return retorno;
         }
 
-        public enum ErroresAltaBandeja
+        public enum ErroresAltaExcurcion
         {
             EXITO,
             ERR_CODIGO,
@@ -99,7 +107,9 @@ namespace Dominio
             ERR_DIAS_TRASLADO,
             ERR_STOCK,
             ERR_PUNTOS,
-            ERR_PASAJEROS
+            ERR_PASAJEROS,
+            ERR_DESCUENTO,
+            ERR_SEGURO
         }
         #endregion
     }

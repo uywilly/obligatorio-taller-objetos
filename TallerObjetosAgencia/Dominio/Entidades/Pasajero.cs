@@ -9,6 +9,15 @@ namespace Dominio
 {
     public class Pasajero : Rol,IEntity
     {
+        /* Completado: 
+         *  - Propiedades automaticas
+         *  - Constructor
+         *  - Validaciones
+         *  
+         *  Falta:
+         *  - Manejo de Id
+         *  - ToString + Equals 
+         */
         
         #region Properties
         public double Puntos { get; set; }
@@ -23,9 +32,7 @@ namespace Dominio
         {
             this.Puntos = puntos;
         }
-        #endregion
-
-       
+        #endregion   
 
         #region ToString-Equals
         public override string ToString()
@@ -38,13 +45,17 @@ namespace Dominio
         }
         #endregion
 
-        #region validaciones
-        public override List<Rol.ErroresAltaRol> Validar()
+        #region Validaciones
+        public override bool Validar()
         {
-            List<Rol.ErroresAltaRol> retorno = new List<ErroresAltaRol>();
-            if(!Double.IsNaN(this.Puntos)) 
+            return base.Validar() && !Double.IsNaN(this.Puntos);
+        }
+        public override List<ErroresAltaRol> Validar2()
+        {
+            List<Rol.ErroresAltaRol> retorno = new List<Rol.ErroresAltaRol>();
+            if (Double.IsNaN(this.Puntos))
                 retorno.Add(Rol.ErroresAltaRol.ERR_PUNTOS);
-            if (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO) && retorno.Count==0 )
+            if (base.Validar2().Contains(Rol.ErroresAltaRol.EXITO) && retorno.Count == 0)
             {
                 retorno.Add(Rol.ErroresAltaRol.EXITO);
             }

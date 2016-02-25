@@ -13,7 +13,7 @@ namespace Dominio
         public byte DiasEstadia { get; set; }
         public decimal CostoDiario { get; set; }
         public Destino Destino { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         #endregion
 
@@ -23,12 +23,14 @@ namespace Dominio
             this.DiasEstadia = 0;
             this.CostoDiario = 0;
             this.Destino = null;
+            this.Id = "";
         }
-        public Itinerario(byte diasEstadia, decimal costoDiario, Destino destino)
+        public Itinerario(byte diasEstadia, decimal costoDiario, Destino destino, string id)
         {
             this.DiasEstadia = diasEstadia;
             this.CostoDiario = costoDiario;
             this.Destino = destino;
+            this.Id = id;
 
         }
         #endregion

@@ -22,8 +22,8 @@ namespace Dominio
 
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string Ci { get; set; }
-        public int Id { get; set; }
+        public string Ci { get { return this.Id; } }
+        public string Id { get; set; }
         
         #endregion
         
@@ -32,13 +32,13 @@ namespace Dominio
         {
             this.Nombre = "";
             this.Apellido = "";
-            this.Ci = "";
+            this.Id = "";
         }
         public Persona(string nombre, string apellido, string ci)
         {
             this.Nombre = nombre;
             this.Apellido = apellido;
-            this.Ci = ci;
+            this.Id = ci;
         }
         #endregion
 

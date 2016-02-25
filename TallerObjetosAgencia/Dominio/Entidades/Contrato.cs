@@ -20,13 +20,26 @@ namespace Dominio
          *  - ToString + Equals 
          */
         #region Constructor 
+        public Contrato()
+        {
+            this.Excurcion = null;
+            this.ListaRoles = null;
+            this.Id = "";
 
+        }
+        public Contrato(Excurcion ex, List<Rol> listaRoles, string id)
+        {
+            this.Excurcion = ex;
+            this.ListaRoles = listaRoles;
+            this.Id = id;
+
+        }
         #endregion
         
         #region Properties
         public Excurcion Excurcion { get; set; }
         public List<Rol> ListaRoles { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
         #endregion
         
         #region ToString-Equals

@@ -25,13 +25,15 @@ namespace Dominio
             this.Nombre = "";
             this.Ciudad = "";
             this.Pais = "";
+            this.Id = "";
 
         }
-        public Destino(string nombre, string ciudad, string pais)
+        public Destino(string nombre, string ciudad, string pais, string id)
         {
             this.Nombre = nombre;
             this.Ciudad = ciudad;
             this.Pais = pais;
+            this.Id = id;
         }
         #endregion
         
@@ -39,7 +41,7 @@ namespace Dominio
         public string Nombre { get; set; }
         public string Ciudad { get; set; }
         public string Pais { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         #endregion
         

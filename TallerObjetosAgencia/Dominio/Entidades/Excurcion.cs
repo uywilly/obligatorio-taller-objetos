@@ -19,7 +19,8 @@ namespace Dominio
          *  - ToString + Equals 
          */
         #region Properties
-        public string Codigo { get; set; }
+        public string Codigo { get{return this.Id;}}
+        public string Id { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaComienzo { get; set; }
         public List<Itinerario> HojaRuta { get; set; }
@@ -27,13 +28,13 @@ namespace Dominio
         public byte Stock { get; set; }
         public double Puntos { get; set; }
         public List<Pasajero> Pasajeros { get; set; }
-        public int Id { get; set; }
+        
         #endregion
 
         #region Constructor
         public Excurcion()
         {
-            this.Codigo = "";
+            this.Id = "";
             this.Descripcion = "";
             this.FechaComienzo = System.DateTime.Today;
             this.HojaRuta = null;
@@ -44,7 +45,7 @@ namespace Dominio
         }
         public Excurcion(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros)
         {
-            this.Codigo = codigo;
+            this.Id = codigo;
             this.Descripcion = descripcion;
             this.FechaComienzo = fechaComienzo;
             this.HojaRuta = hojaRuta;

@@ -21,7 +21,7 @@ namespace Dominio
 
         #region Properties
         public Persona Persona { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
         #endregion
 
         #region Validaciones
@@ -52,10 +52,12 @@ namespace Dominio
         public Rol()
         {
             this.Persona = null;
+            this.Id = "";
         }
         public Rol(Persona persona)
         {
             this.Persona = persona;
+            this.Id = "";
         }
         public Rol(string nombre, string apellido, string ci)
         {

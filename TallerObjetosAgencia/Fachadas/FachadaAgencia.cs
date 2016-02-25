@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio.Repositorios;
+using Dominio;
 using Dominio.Entidades;
+using Dominio.Repositorios;
+
 
 namespace Fachadas
 {
-    class FachadaAgencia
+    public class FachadaAgencia
     {
 
         #region Listados(Repositorios)
@@ -39,7 +41,14 @@ namespace Fachadas
         }
         #endregion
 
-
+        public bool AgregarDestino(string nombre, string ciudad, string pais, string id)
+        {
+            bool retorno = false;
+            Destino unD = new Destino(nombre, ciudad, pais, id);
+            retorno = RepoDestinos.Add(unD);
+            
+            return retorno;
+        }
 
     }
 }

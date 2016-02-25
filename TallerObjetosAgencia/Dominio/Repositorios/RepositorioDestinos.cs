@@ -10,6 +10,9 @@ namespace Dominio.Repositorios
     public class RepositorioDestinos:IRepositorio<Destino>
     {
         private IList<Destino> listaDestinos = new List<Destino>();
+        public RepositorioDestinos()
+        { 
+        }
 
         public IEnumerable<Destino> List
         {
@@ -19,6 +22,13 @@ namespace Dominio.Repositorios
         public bool Add(Destino entity)
         {
             bool retorno = false;
+            if (!(this.listaDestinos.Contains(entity)))
+            {
+                if (entity.Validar())
+                {
+                    this.listaDestinos.Add(entity);
+                }
+            }
             return retorno;
         }
 

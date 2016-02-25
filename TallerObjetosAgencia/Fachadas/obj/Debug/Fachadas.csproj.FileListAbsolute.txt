@@ -1,0 +1,7 @@
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\bin\Debug\Fachadas.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\bin\Debug\Fachadas.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\bin\Debug\Dominio.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\bin\Debug\Dominio.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\obj\Debug\Fachadas.csprojResolveAssemblyReference.cache
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\obj\Debug\Fachadas.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Fachadas\obj\Debug\Fachadas.pdb

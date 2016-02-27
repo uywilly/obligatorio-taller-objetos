@@ -110,5 +110,21 @@ namespace Dominio
             ERR_SEGURO
         }
         #endregion
+
+        #region Metodos
+        public void AgregarPasajeros(List<Rol> listaPasajeros)
+        {
+            foreach(Rol unR in listaPasajeros)
+            {
+                Pasajero unP = unR as Pasajero;
+                if (unP != null)
+                {
+                    this.Pasajeros.Add(unP);
+                    unP.Puntos += this.Puntos;
+                }
+            }
+            
+        }
+        #endregion
     }
 }

@@ -35,7 +35,14 @@ namespace Dominio.Repositorios
         #region Metodos
         public bool Add(Persona entity)
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            if (entity != null && !(this.ListaPersonas.Contains(entity)) && entity.Validar())
+            {
+                this.ListaPersonas.Add(entity);
+                retorno = true;
+            }
+
+            return retorno;
         }
 
         public bool Delete(Persona entity)
@@ -45,18 +52,46 @@ namespace Dominio.Repositorios
 
         public bool Update(Persona entity)
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            if (entity != null && this.ListaPersonas.Contains(entity) && entity.Validar())
+            {
+                Persona unaP = this.ListaPersonas.ElementAt(this.ListaPersonas.IndexOf(entity));
+                unaP.Nombre = entity.Nombre;
+                unaP.Apellido = entity.Apellido;
+                unaP.Id = entity.Id;
+                
+                retorno = true;
+
+            }
+
+            return retorno;
         }
 
         public int IndexOf(Persona entity)
         {
-            throw new NotImplementedException();
+            int pos = -1;
+            if (entity != null && this.ListaPersonas.Contains(entity))
+            {
+                pos = this.ListaPersonas.IndexOf(entity);
+            }
+            return pos;
         }
 
         public Persona FindById(string Id)
         {
-            throw new NotImplementedException();
+            Persona unaP = null;
+
+            int i = 0;
+            while (i < this.ListaPersonas.Count && unaP == null)
+            {
+                if (this.ListaPersonas[i].Id == Id) unaP = this.ListaPersonas[i];
+                i++;
+
+            }
+
+            return unaP;
         }
+
         #endregion
 
     }

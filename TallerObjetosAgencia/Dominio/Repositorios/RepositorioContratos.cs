@@ -38,8 +38,13 @@ namespace Dominio.Repositorios
             bool retorno = false;
             if (entity != null && !(this.ListaContratos.Contains(entity)) && entity.Validar())
             {
-                this.ListaContratos.Add(entity);
-                retorno = true;
+                Excurcion unaE = entity.Excurcion;
+                if (unaE.Stock >= entity.ListaPasajeros.Count)
+                {
+                    this.ListaContratos.Add(entity);
+                    unaE.AgregarPasajeros(entity.ListaPasajeros);
+                    retorno = true;
+                }
             }
 
             return retorno;
@@ -85,7 +90,6 @@ namespace Dominio.Repositorios
 
             return unC;
         }
-
 
         public int IndexOf(Contrato entity)
         {

@@ -10,6 +10,12 @@ namespace Dominio.Repositorios
     public class RepositorioContratos : IRepositorio<Contrato>
     {
         private IList<Contrato> listaContratos = new List<Contrato>();
+
+        public IList<Contrato> ListaContratos
+        {
+            get { return listaContratos; }
+            set { listaContratos = value; }
+        }
         public IEnumerable<Contrato> List
         {
             get { return this.listaContratos; }

@@ -55,7 +55,9 @@
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioContratos.cs" />
     <Compile Include="Repositorios\RepositorioDestinos.cs" />
+    <Compile Include="Repositorios\RepositorioExcurciones.cs" />
     <Compile Include="Repositorios\RepositorioPasajeros.cs" />
+    <Compile Include="Repositorios\RepositorioPersonas.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

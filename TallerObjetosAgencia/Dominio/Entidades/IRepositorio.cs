@@ -12,6 +12,7 @@ namespace Dominio.Entidades
         bool Add(T entity);
         bool Delete(T entity);
         bool Update(T entity);
-        T FindById(int Id);
+        int IndexOf(T entity);
+        T FindById(string Id);
     }
 }

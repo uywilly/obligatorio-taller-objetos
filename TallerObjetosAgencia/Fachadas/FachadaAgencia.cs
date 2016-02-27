@@ -100,6 +100,7 @@ namespace Fachadas
             retorno = (this.RepoPasajeros.Add(unP) ? true : false);
             return retorno;
         }
+
         #endregion
         #region ManejoContratos
         public bool AgregarContrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
@@ -128,6 +129,21 @@ namespace Fachadas
             bool retorno = false;
             Destino unD = new Destino(nombre, ciudad, pais, id);
             retorno = RepoDestinos.Add(unD);
+            return retorno;
+        }
+        public bool EliminarDestino(string nombre, string ciudad, string pais, string id)
+        {
+            bool retorno = false;
+            //Verifico si existe el destino a eliminar
+            Destino unD = instancia.RepoDestinos.FindById(id);
+            if (unD != null)
+            {
+                //verifico que el destino no este en uso
+                if(RepoExcurciones.FindDestinoById(id) == null)
+                {
+                    retorno = RepoDestinos.Delete(unD);
+                }
+            }
             return retorno;
         }
         #endregion

@@ -57,17 +57,50 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AltaContrato.aspx" />
+    <Content Include="AltaExcurcion.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="ExcurcionDestino.aspx" />
+    <Content Include="ExcurcionFechas.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="RankingPasajeros.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaContrato.aspx.cs">
+      <DependentUpon>AltaContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaContrato.aspx.designer.cs">
+      <DependentUpon>AltaContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaExcurcion.aspx.cs">
+      <DependentUpon>AltaExcurcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaExcurcion.aspx.designer.cs">
+      <DependentUpon>AltaExcurcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcurcionDestino.aspx.cs">
+      <DependentUpon>ExcurcionDestino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExcurcionDestino.aspx.designer.cs">
+      <DependentUpon>ExcurcionDestino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcurcionFechas.aspx.cs">
+      <DependentUpon>ExcurcionFechas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExcurcionFechas.aspx.designer.cs">
+      <DependentUpon>ExcurcionFechas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -80,6 +113,13 @@
       <DependentUpon>Maestra.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankingPasajeros.aspx.cs">
+      <DependentUpon>RankingPasajeros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RankingPasajeros.aspx.designer.cs">
+      <DependentUpon>RankingPasajeros.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Maestra.Master" />

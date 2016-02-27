@@ -88,8 +88,11 @@ namespace Test
             FachadaAgencia.Instancia.AgregarContrato(ex1, cli1, pasajeros2, "1");
             Console.WriteLine(FachadaAgencia.Instancia.RepoContratos.FindById("1").ToString());
 
-
+            FachadaAgencia.Instancia.SerializarTodo();
+            FachadaAgencia.Instancia.DeserializarTodo();
             Console.ReadLine();
+
+            
         }
     }
 }

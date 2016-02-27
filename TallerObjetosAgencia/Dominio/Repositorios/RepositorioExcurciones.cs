@@ -102,8 +102,21 @@ namespace Dominio.Repositorios
 
             return unaE;
         }
-
+        
+        public Destino FindDestinoById(string id)
+        {
+            Destino unD = null;
+            int i = 0;
+            while (unD == null && i < this.ListaExcurciones.Count)
+            {
+                unD = this.ListaExcurciones[i].BuscarDestino(id);
+                i++;
+            }
+            return unD;
+        }
         #endregion
+
+
         
     }
 }

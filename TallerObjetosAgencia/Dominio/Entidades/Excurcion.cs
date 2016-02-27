@@ -111,7 +111,7 @@ namespace Dominio
         }
         #endregion
 
-        #region Metodos
+        #region Otros Metodos
         public void AgregarPasajeros(IList<Pasajero> listaPasajeros)
         {
             foreach(Pasajero unP in listaPasajeros)
@@ -123,6 +123,17 @@ namespace Dominio
                 }
             }
             
+        }
+        public Destino BuscarDestino(string id)
+        {
+            Destino unD = null;
+            int i = 0;
+            while (unD == null && i < this.HojaRuta.Count)
+            {
+                unD = (this.HojaRuta[i].Destino.Id == id ? this.HojaRuta[i].Destino : null);
+                i++;
+            }
+            return unD; 
         }
         #endregion
     }

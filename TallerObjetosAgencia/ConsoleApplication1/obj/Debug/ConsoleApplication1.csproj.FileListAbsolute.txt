@@ -1,0 +1,10 @@
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\Dominio.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\Fachadas.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\Dominio.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\bin\Debug\Fachadas.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

@@ -40,7 +40,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return this.Nombre +" " +this.Apellido+" " +this.Ci;
         }
         public override bool Equals(object obj)
         {

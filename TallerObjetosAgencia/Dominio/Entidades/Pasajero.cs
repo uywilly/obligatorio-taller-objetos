@@ -31,7 +31,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "Pasajero: " + base.ToString();
+            return "Pasajero: " + base.ToString() +" Puntos " + this.Puntos;
         }
         public override bool Equals(object obj)
         {

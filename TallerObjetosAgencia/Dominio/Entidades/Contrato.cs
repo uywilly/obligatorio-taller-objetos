@@ -15,7 +15,7 @@ namespace Dominio
         #region Properties
         public Excurcion Excurcion { get; set; }
         public Cliente Cliente { get; set; }
-        public List<Rol> ListaPasajeros { get; set; }
+        public IList<Pasajero> ListaPasajeros { get; set; }
         public string Id { get; set; }
         #endregion
 
@@ -28,7 +28,7 @@ namespace Dominio
             this.Id = "";
 
         }
-        public Contrato(Excurcion ex, Cliente cliente, List<Rol> listaPasajeros, string id)
+        public Contrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
         {
             this.Excurcion = ex;
             this.Cliente = cliente;

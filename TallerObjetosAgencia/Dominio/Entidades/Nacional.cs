@@ -14,8 +14,7 @@ namespace Dominio
     {
 
         #region Properties
-        public double Descuento { get; set; }
-       
+        public double Descuento { get; set; }  
         #endregion
 
         #region Constructor
@@ -23,7 +22,7 @@ namespace Dominio
             : base()
         {
         }
-        public Nacional(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros, double descuento)
+        public Nacional(string codigo, string descripcion, DateTime fechaComienzo, IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, IList<Pasajero> pasajeros, double descuento)
             : base(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros)
         {
             this.Descuento = descuento;

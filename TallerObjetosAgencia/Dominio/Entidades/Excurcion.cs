@@ -18,11 +18,11 @@ namespace Dominio
         public string Id { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaComienzo { get; set; }
-        public List<Itinerario> HojaRuta { get; set; }
+        public IList<Itinerario> HojaRuta { get; set; }
         public byte DiasTraslado { get; set; }
         public byte Stock { get; set; }
         public double Puntos { get; set; }
-        public List<Pasajero> Pasajeros { get; set; }
+        public IList<Pasajero> Pasajeros { get; set; }
         
         #endregion
 
@@ -38,7 +38,7 @@ namespace Dominio
             this.Puntos = 0;
             this.Pasajeros = null;
         }
-        public Excurcion(string codigo, string descripcion, DateTime fechaComienzo, List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, List<Pasajero> pasajeros)
+        public Excurcion(string codigo, string descripcion, DateTime fechaComienzo, IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, IList<Pasajero> pasajeros)
         {
             this.Id = codigo;
             this.Descripcion = descripcion;
@@ -112,11 +112,10 @@ namespace Dominio
         #endregion
 
         #region Metodos
-        public void AgregarPasajeros(List<Rol> listaPasajeros)
+        public void AgregarPasajeros(IList<Pasajero> listaPasajeros)
         {
-            foreach(Rol unR in listaPasajeros)
+            foreach(Pasajero unP in listaPasajeros)
             {
-                Pasajero unP = unR as Pasajero;
                 if (unP != null)
                 {
                     this.Pasajeros.Add(unP);

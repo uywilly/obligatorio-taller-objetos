@@ -18,10 +18,28 @@ namespace Dominio
         public string Id { get; set; }
         #endregion
 
+        #region Constructor
+        public Rol()
+        {
+            this.Persona = null;
+            this.Id = "";
+        }
+        public Rol(Persona persona)
+        {
+            this.Persona = persona;
+            this.Id = persona.Id;
+        }
+        public Rol(string nombre, string apellido, string ci)
+        {
+            this.Persona = new Persona(nombre, apellido, ci);
+            this.Id = this.Persona.Id;
+        }
+        #endregion
+
         #region Validaciones
         public virtual bool Validar()
         {
-            return (this.Persona.Validar2().Contains(Persona.ErroresAltaPersona.EXITO));
+            return (this.Persona.Validar());
         }
         public virtual List<Rol.ErroresAltaRol> Validar2()
         {
@@ -42,22 +60,7 @@ namespace Dominio
         }
         #endregion
         
-        #region Constructor
-        public Rol()
-        {
-            this.Persona = null;
-            this.Id = "";
-        }
-        public Rol(Persona persona)
-        {
-            this.Persona = persona;
-            this.Id = "";
-        }
-        public Rol(string nombre, string apellido, string ci)
-        {
-            this.Persona = new Persona(nombre, apellido, ci);
-        }
-        #endregion
+        
 
         #region ToString-Equals
         public override string ToString()

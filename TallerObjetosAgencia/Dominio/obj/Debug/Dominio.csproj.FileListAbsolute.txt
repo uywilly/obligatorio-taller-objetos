@@ -2,4 +2,3 @@ C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Domin
 C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Dominio\bin\Debug\Dominio.pdb
 C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Dominio\obj\Debug\Dominio.dll
 C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Dominio\obj\Debug\Dominio.pdb
-C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\Dominio\obj\Debug\Dominio.csprojResolveAssemblyReference.cache

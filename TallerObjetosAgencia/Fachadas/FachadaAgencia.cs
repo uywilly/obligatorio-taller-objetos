@@ -31,7 +31,7 @@ namespace Fachadas
 
         private static FachadaAgencia instancia = null;
 
-        internal FachadaAgencia Instancia
+        public static FachadaAgencia Instancia
         {
             get { if (instancia == null) { FachadaAgencia.instancia = new FachadaAgencia(); } return instancia; }
         }
@@ -102,7 +102,7 @@ namespace Fachadas
         }
         #endregion
         #region ManejoContratos
-        public bool AgregarContrato(Excurcion ex, Cliente cliente, List<Rol> listaPasajeros, string id)
+        public bool AgregarContrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
         {
             bool retorno = false;
             Contrato unC = new Contrato(ex, cliente, listaPasajeros, id);
@@ -113,8 +113,8 @@ namespace Fachadas
         #endregion
         #region ManejoExcurciones
         public bool AgregarExcurcionNac(string codigo, string descripcion, DateTime fechaComienzo, 
-            List<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, 
-            List<Pasajero> pasajeros, double descuento)
+            IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, 
+            IList<Pasajero> pasajeros, double descuento)
         {
             bool retorno = false;
             Nacional unaE = new Nacional(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros, descuento);
@@ -128,7 +128,6 @@ namespace Fachadas
             bool retorno = false;
             Destino unD = new Destino(nombre, ciudad, pais, id);
             retorno = RepoDestinos.Add(unD);
-
             return retorno;
         }
         #endregion

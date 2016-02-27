@@ -54,13 +54,13 @@ namespace Dominio
         #region Validaciones
         public bool Validar()
         {
-            return (this.Excurcion != null && this.ListaRoles.Count > 0);
+            return (this.Excurcion != null && this.ListaPasajeros.Count > 0);
         }
         public List<Contrato.ErroresAltaContrato> Validar2()
         {
             List<Contrato.ErroresAltaContrato> retorno = new List<Contrato.ErroresAltaContrato>();
             if (!this.Excurcion.Validar2().Contains(Excurcion.ErroresAltaExcurcion.EXITO)) retorno.Add(Contrato.ErroresAltaContrato.ERR_EXCURCION);
-            if (this.ListaRoles.Count < 0) retorno.Add(ErroresAltaContrato.ERR_ROLES);
+            if (this.ListaPasajeros.Count < 0) retorno.Add(ErroresAltaContrato.ERR_ROLES);
             if (retorno.Count == 0) retorno.Add(Contrato.ErroresAltaContrato.EXITO);
             return retorno;
         }

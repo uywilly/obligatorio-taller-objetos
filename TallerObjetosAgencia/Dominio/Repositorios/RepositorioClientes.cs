@@ -64,6 +64,7 @@ namespace Dominio.Repositorios
                 Cliente unC = this.ListaClientes.ElementAt(this.ListaClientes.IndexOf(entity));
                 unC.Persona = entity.Persona;
                 unC.Id = entity.Id;
+                retorno = true;
 
             }
 

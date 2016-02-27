@@ -65,6 +65,7 @@ namespace Dominio.Repositorios
                 unC.Cliente = entity.Cliente;
                 unC.Id = entity.Id;
                 unC.ListaPasajeros = entity.ListaPasajeros;
+                retorno = true;
             }
 
             return retorno;

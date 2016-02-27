@@ -68,6 +68,7 @@ namespace Dominio.Repositorios
                 unD.Id = entity.Id;
                 unD.Pais = entity.Pais;
                 unD.Ciudad = entity.Ciudad;
+                retorno = true;
             }
 
             return retorno;

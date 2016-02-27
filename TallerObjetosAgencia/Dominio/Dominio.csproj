@@ -45,7 +45,7 @@
     <Compile Include="Entidades\Excurcion.cs" />
     <Compile Include="Entidades\IEntity.cs" />
     <Compile Include="Entidades\Internacional.cs" />
-    <Compile Include="Entidades\IRepositorio.cs" />
+    <Compile Include="Repositorios\IRepositorio.cs" />
     <Compile Include="Entidades\Itinerario.cs" />
     <Compile Include="Entidades\Nacional.cs" />
     <Compile Include="Entidades\Pasajero.cs" />

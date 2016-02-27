@@ -24,8 +24,7 @@ namespace Dominio.Repositorios
             get { return this.listaClientes; }
         }        
         #endregion
-        
-        
+             
         #region Contrstuctor
         public RepositorioClientes()
         {
@@ -60,10 +59,12 @@ namespace Dominio.Repositorios
         public bool Update(Cliente entity)
         {
             bool retorno = false;
-            if (entity != null && this.ListaClientes.Contains(entity))
+            if (entity != null && this.ListaClientes.Contains(entity) && entity.Validar())
             {
-                this.ListaClientes.RemoveAt(this.ListaClientes.IndexOf(entity));
-                this.ListaClientes.Add(entity);
+                Cliente unC = this.ListaClientes.ElementAt(this.ListaClientes.IndexOf(entity));
+                unC.Persona = entity.Persona;
+                unC.Id = entity.Id;
+
             }
 
             return retorno;
@@ -94,8 +95,6 @@ namespace Dominio.Repositorios
             return unC;
         }
         
-        public void Persistir() { }
-
         #endregion
 
 

@@ -12,15 +12,6 @@ namespace Dominio
     [Serializable]
     public class Contrato:IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Validaciones
-         *  -Constructor
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
         #region Properties
         public Excurcion Excurcion { get; set; }
         public Cliente Cliente { get; set; }

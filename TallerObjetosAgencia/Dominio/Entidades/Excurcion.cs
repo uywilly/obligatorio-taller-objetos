@@ -1,23 +1,18 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public abstract class Excurcion: IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
+
         #region Properties
         public string Codigo { get{return this.Id;}}
         public string Id { get; set; }
@@ -62,11 +57,13 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return "Excurcion: " + this.Id + " - " + this.Descripcion;
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Excurcion unaE = obj as Excurcion;
+            if (unaE == null) return false;
+            return unaE.Id == this.Id;
         }
         #endregion
 

@@ -1,23 +1,18 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Cliente : Rol, IEntity  
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
+
         #region Properties
         public string DireccionFactura { get; set; }
         #endregion
@@ -36,7 +31,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return "Cliente: " + base.ToString();
         }
         public override bool Equals(object obj)
         {

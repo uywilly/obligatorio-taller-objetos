@@ -1,23 +1,18 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Persona:IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
+
         #region Properties
 
         public string Nombre { get; set; }
@@ -49,7 +44,9 @@ namespace Dominio
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Persona unaP = obj as Persona;
+            if (unaP == null) return false;
+            return unaP.Id == this.Id;
         }
         #endregion
 

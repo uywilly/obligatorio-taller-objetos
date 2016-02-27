@@ -1,13 +1,15 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio.Entidades;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Contrato:IEntity
     {
         /* Completado: 
@@ -19,31 +21,43 @@ namespace Dominio
          *  - Manejo de Id
          *  - ToString + Equals 
          */
+        #region Properties
+        public Excurcion Excurcion { get; set; }
+        public Cliente Cliente { get; set; }
+        public List<Rol> ListaPasajeros { get; set; }
+        public string Id { get; set; }
+        #endregion
+
         #region Constructor 
         public Contrato()
         {
             this.Excurcion = null;
-            this.ListaRoles = null;
+            this.Cliente = null;
+            this.ListaPasajeros = null;
             this.Id = "";
 
         }
-        public Contrato(Excurcion ex, List<Rol> listaRoles, string id)
+        public Contrato(Excurcion ex, Cliente cliente, List<Rol> listaPasajeros, string id)
         {
             this.Excurcion = ex;
-            this.ListaRoles = listaRoles;
+            this.Cliente = cliente;
+            this.ListaPasajeros = listaPasajeros;
             this.Id = id;
 
         }
         #endregion
         
-        #region Properties
-        public Excurcion Excurcion { get; set; }
-        public List<Rol> ListaRoles { get; set; }
-        public string Id { get; set; }
-        #endregion
-        
         #region ToString-Equals
-
+        public override string ToString()
+        {
+            return "Cliente: " + this.Cliente.ToString() + "Pasajeros: " + this.ListaPasajeros.ToString() ;
+        }
+        public override bool Equals(object obj)
+        {
+            Contrato unC = obj as Contrato;
+            if (unC == null) return false;
+            return unC.Id == this.Id;
+        }
         #endregion
         
         #region Validaciones

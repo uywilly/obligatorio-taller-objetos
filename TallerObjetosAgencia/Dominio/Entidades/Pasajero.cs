@@ -1,23 +1,17 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Pasajero : Rol,IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
         
         #region Properties
         public double Puntos { get; set; }
@@ -37,7 +31,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return "Pasajero: " + base.ToString();
         }
         public override bool Equals(object obj)
         {

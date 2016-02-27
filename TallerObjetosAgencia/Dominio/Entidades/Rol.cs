@@ -1,23 +1,17 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public abstract class Rol : IEntity
     {
-         /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
 
         #region Properties
         public Persona Persona { get; set; }
@@ -68,11 +62,13 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return this.Persona.ToString();
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Rol unR = obj as Rol;
+            if (unR == null) return false;
+            return unR.Id == this.Id;
         }
         #endregion
         

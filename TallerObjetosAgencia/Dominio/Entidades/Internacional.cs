@@ -1,23 +1,17 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Internacional : Excurcion,IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
         private static double seguro;
 
         #region Constructor
@@ -40,7 +34,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return base.ToString();
         }
         public override bool Equals(object obj)
         {

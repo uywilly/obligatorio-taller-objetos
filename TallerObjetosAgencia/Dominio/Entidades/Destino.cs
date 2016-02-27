@@ -1,23 +1,24 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Destino:IEntity
     {
-        /* Completado: 
-         *  - Propiedades automaticas
-         *  - Constructor
-         *  - Validaciones
-         *  
-         *  Falta:
-         *  - Manejo de Id
-         *  - ToString + Equals 
-         */
+        #region Properties
+        public string Nombre { get; set; }
+        public string Ciudad { get; set; }
+        public string Pais { get; set; }
+        public string Id { get; set; }
+
+        #endregion
 
         #region Constructor 
         public Destino()
@@ -36,23 +37,17 @@ namespace Dominio
             this.Id = id;
         }
         #endregion
-        
-        #region Properties
-        public string Nombre { get; set; }
-        public string Ciudad { get; set; }
-        public string Pais { get; set; }
-        public string Id { get; set; }
-
-        #endregion
-        
+            
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return "Destino: " + this.Nombre + " " + this.Ciudad +" , " + this.Pais;
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Destino unD = obj as Destino;
+            if(unD == null) return false;
+            return unD.Id == this.Id;
         }
         #endregion
         

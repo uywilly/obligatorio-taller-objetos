@@ -1,12 +1,15 @@
 ﻿using Dominio.Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Dominio
 {
+    [Serializable]
     public class Itinerario:IEntity
     {
         #region Properties
@@ -38,7 +41,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "";
+            return "Itinerario";
         }
         public override bool Equals(object obj)
         {
@@ -46,14 +49,5 @@ namespace Dominio
         }
         #endregion
         
-        #region ENUM-ERRORES
-        public enum ErroresAltaBandeja
-        {
-            EXITO,
-            ERR_DIAS,
-            ERR_COSTO,
-            ERR_DESTINO,
-        }
-        #endregion
     }
 }

@@ -31,15 +31,6 @@ namespace PresentacionWeb {
         protected global::System.Web.UI.WebControls.GridView grClientes;
         
         /// <summary>
-        /// btnAgregarCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarCliente;
-        
-        /// <summary>
         /// lblExcurciones control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace PresentacionWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grPasajeros;
-        
-        /// <summary>
-        /// btnPasajeros control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPasajeros;
         
         /// <summary>
         /// btnAgregar control.

@@ -64,6 +64,8 @@
     <Content Include="ExcurcionFechas.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
+    <Content Include="Js\AltaExcurcion.js" />
+    <Content Include="Js\jquery-1.11.3.js" />
     <Content Include="RankingPasajeros.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,9 +150,7 @@
       <Name>Fachadas</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

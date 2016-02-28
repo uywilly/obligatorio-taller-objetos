@@ -67,13 +67,13 @@ namespace PresentacionWeb {
         protected global::System.Web.UI.WebControls.Label lblFecha;
         
         /// <summary>
-        /// Calendar1 control.
+        /// calFini control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Calendar calFini;
         
         /// <summary>
         /// lblHRuta control.

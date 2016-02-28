@@ -76,7 +76,7 @@ namespace Fachadas
         }
 
 
-        public static void GuardarParametros(string delimitador)
+        public void GuardarParametros(string delimitador)
         {
             try
             {
@@ -95,25 +95,33 @@ namespace Fachadas
             catch (Exception) { throw; }
         }
 
-        private static double ObtenerDesdeString(string dato, string delimitador)
+        private double ObtenerDesdeString(string dato, string delimitador)
         {
             string[] vecDatos = dato.Split(delimitador.ToCharArray());
             return Double.Parse(vecDatos[1]);
         }
 
-        public static void Leer(string delimitador)
+        public void Leer(string delimitador)
         {
             StreamReader sr = null;
-            using (sr = new StreamReader(ArchivoParametros))
+            try
             {
-                string linea = sr.ReadLine();
-                Double seguro = Double.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                linea = sr.ReadLine();
-                int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                Internacional.Seguro = seguro;
-                Pasajero.Ultimo = ultimo;
-
+                using (sr = new StreamReader(ArchivoParametros))
+                {
+                    string linea = sr.ReadLine();
+                    Double seguro = Double.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                    linea = sr.ReadLine();
+                    int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                    Internacional.Seguro = seguro;
+                    Pasajero.Ultimo = ultimo;
+                }
             }
+            catch (FileNotFoundException) { throw; }
+            catch (PathTooLongException) { throw; }
+            catch (InvalidDataException) { throw; }
+            catch (DirectoryNotFoundException) { throw; }
+            catch (DriveNotFoundException) { throw; }
+            catch (Exception) { throw; }
         }
 
         #endregion

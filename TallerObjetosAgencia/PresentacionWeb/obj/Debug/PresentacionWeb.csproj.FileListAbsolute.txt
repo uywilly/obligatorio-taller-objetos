@@ -1,0 +1,9 @@
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\PresentacionWeb.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\PresentacionWeb.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\Dominio.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\Fachadas.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\Dominio.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\bin\Fachadas.pdb
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\obj\Debug\PresentacionWeb.csprojResolveAssemblyReference.cache
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\obj\Debug\PresentacionWeb.dll
+C:\Users\William\Documents\obligatorio-taller-objetos\TallerObjetosAgencia\PresentacionWeb\obj\Debug\PresentacionWeb.pdb

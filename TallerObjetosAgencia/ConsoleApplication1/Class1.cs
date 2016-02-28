@@ -46,8 +46,9 @@ namespace Test
             hoja2.Add(i3);
             #endregion
 
-
-            #region PASAJEROS Y CLIENTES
+            
+            #region PASAJEROS + CLIENTES + EXCURCION + CONTRATO
+            /*
             //crear persoas - pasajeros - clientes
             FachadaAgencia.Instancia.AgregarPersona("Juan", "Lopez", "1234567-1");
             FachadaAgencia.Instancia.AgregarPersona("Jose", "Lopez", "1234567-2");
@@ -61,10 +62,6 @@ namespace Test
             FachadaAgencia.Instancia.AgregarPasajero("Jose", "Lopez", "1234567-2", 0);
             FachadaAgencia.Instancia.AgregarPasajero("Ana", "Lopez", "1234567-3", 0);
             FachadaAgencia.Instancia.AgregarPasajero("Lujan", "Lopez", "1234567-4", 0);
-
-            
-            
-            #endregion
 
             IList<Pasajero> pasajeros1 = new List<Pasajero>();
             IList<Pasajero> pasajeros2 = new List<Pasajero>();
@@ -89,7 +86,13 @@ namespace Test
             Console.WriteLine(FachadaAgencia.Instancia.RepoContratos.FindById("1").ToString());
 
             FachadaAgencia.Instancia.SerializarTodo();
+             */
+            #endregion
+            
             FachadaAgencia.Instancia.DeserializarTodo();
+            //FachadaAgencia.GuardarParametros(":");
+            FachadaAgencia.Leer();
+            Console.WriteLine(FachadaAgencia.Instancia.RepoContratos.FindById("1").ToString());
             Console.ReadLine();
 
             

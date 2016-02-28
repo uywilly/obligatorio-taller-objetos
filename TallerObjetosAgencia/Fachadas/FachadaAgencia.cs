@@ -49,6 +49,8 @@ namespace Fachadas
         #endregion
 
         #region Manejo de Persistencia
+        private static string ArchivoParametros = AppDomain.CurrentDomain.BaseDirectory + "\\parametros.txt";
+
         public void SerializarTodo()
         {
             if (!Directory.Exists(ruta)) Directory.CreateDirectory(ruta);
@@ -72,6 +74,46 @@ namespace Fachadas
                 instancia = formateador.Deserialize(streamR) as FachadaAgencia;
             }
         }
+
+
+        public static void GuardarParametros(string delimitador)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter("parametros.txt", true))
+                {
+                    sw.WriteLine( "Seguro"  + delimitador + Internacional.Seguro);
+                }
+            }
+            catch (FileNotFoundException) { throw; }
+            catch (PathTooLongException) { throw; }
+            catch (InvalidDataException) { throw; }
+            catch (DirectoryNotFoundException) { throw; }
+            catch (DriveNotFoundException) { throw; }
+            catch (Exception) { throw; }
+        }
+
+        private static double ObtenerDesdeString(string dato, string delimitador)
+        {
+            string[] vecDatos = dato.Split(delimitador.ToCharArray());
+            return Double.Parse(vecDatos[1]);
+        }
+
+        public static void Leer()
+        {
+            StreamReader sr = null;
+            using (sr = new StreamReader(ArchivoParametros))
+            {
+                string linea = sr.ReadLine();
+                while (linea != null)
+                {
+                    Double seguro = ObtenerDesdeString(linea, ":");
+                    Internacional.Seguro = seguro;
+                    linea = sr.ReadLine();
+                }
+            }
+        }
+
         #endregion
 
         #region ManejoPersonas
@@ -83,6 +125,7 @@ namespace Fachadas
             return retorno;
         }
         #endregion
+
         #region ManejoClientes
         public bool AgregarCliente(string nombre, string apellido, string ci, string direccionFactura)
         {
@@ -92,6 +135,7 @@ namespace Fachadas
             return retorno;
         }
         #endregion
+        
         #region ManejoPasajeros
         public bool AgregarPasajero(string nombre, string apellido, string ci, double puntos)
         {
@@ -100,8 +144,19 @@ namespace Fachadas
             retorno = (this.RepoPasajeros.Add(unP) ? true : false);
             return retorno;
         }
-
+        public bool ModificarPasajero(string nombre, string apellido, string ci, double puntos)
+        {
+            bool retorno = false;
+            Pasajero unP = instancia.RepoPasajeros.FindById(ci);
+            //verifico si existe el psasajero
+            if (unP != null)
+            {
+                retorno = instancia.RepoPasajeros.Update(unP);
+            }
+            return retorno;
+        }
         #endregion
+
         #region ManejoContratos
         public bool AgregarContrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
         {
@@ -112,6 +167,7 @@ namespace Fachadas
         }
 
         #endregion
+
         #region ManejoExcurciones
         public bool AgregarExcurcionNac(string codigo, string descripcion, DateTime fechaComienzo, 
             IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, 
@@ -123,6 +179,7 @@ namespace Fachadas
             return retorno;
         }
         #endregion
+
         #region ManejoDestinos
         public bool AgregarDestino(string nombre, string ciudad, string pais, string id)
         {

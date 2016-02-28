@@ -82,7 +82,9 @@ namespace Fachadas
             {
                 using (StreamWriter sw = new StreamWriter("parametros.txt", true))
                 {
-                    sw.WriteLine( "Seguro"  + delimitador + Internacional.Seguro);
+                    sw.WriteLine("Seguro"  + delimitador + Internacional.Seguro);
+                    sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
+                    
                 }
             }
             catch (FileNotFoundException) { throw; }
@@ -99,18 +101,18 @@ namespace Fachadas
             return Double.Parse(vecDatos[1]);
         }
 
-        public static void Leer()
+        public static void Leer(string delimitador)
         {
             StreamReader sr = null;
             using (sr = new StreamReader(ArchivoParametros))
             {
                 string linea = sr.ReadLine();
-                while (linea != null)
-                {
-                    Double seguro = ObtenerDesdeString(linea, ":");
-                    Internacional.Seguro = seguro;
-                    linea = sr.ReadLine();
-                }
+                Double seguro = Double.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                linea = sr.ReadLine();
+                int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                Internacional.Seguro = seguro;
+                Pasajero.Ultimo = ultimo;
+
             }
         }
 

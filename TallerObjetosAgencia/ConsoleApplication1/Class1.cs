@@ -91,7 +91,8 @@ namespace Test
             
             FachadaAgencia.Instancia.DeserializarTodo();
             //FachadaAgencia.GuardarParametros(":");
-            FachadaAgencia.Leer();
+            FachadaAgencia.Leer(":");
+            Console.WriteLine("seguro "+Internacional.Seguro + " ultimo " + Pasajero.Ultimo);
             Console.WriteLine(FachadaAgencia.Instancia.RepoContratos.FindById("1").ToString());
             Console.ReadLine();
 

@@ -15,16 +15,22 @@ namespace Dominio
         
         #region Properties
         public double Puntos { get; set; }
+        public static int Ultimo { get; set; }
+        public int codigo { get; set; }
         #endregion
 
         #region Constructor
         public Pasajero():base()
         {
             this.Puntos = 0;
+            this.codigo = Pasajero.Ultimo;
+            ++Pasajero.Ultimo;
         }
         public Pasajero(string nombre, string apellido, string ci, double puntos):base(nombre, apellido, ci)
         {
             this.Puntos = puntos;
+            this.codigo = Pasajero.Ultimo;
+            ++Pasajero.Ultimo;
         }
         #endregion   
 

@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Label ID="lblCodigo" runat="server" Text="Codigo Contrato"></asp:Label>
+    <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+    <br />
     <asp:Label ID="lbClientes" runat="server" Text="Clientes"></asp:Label>
 
 
@@ -42,7 +45,6 @@
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
             <asp:BoundField DataField="Ci" HeaderText="Ci" />
-            <asp:BoundField DataField="Puntos" HeaderText="Puntos" />
             <asp:TemplateField HeaderText="Seleccionar">
                 <ItemTemplate>
                     <asp:CheckBox ID="chkPasajeros" runat="server" />

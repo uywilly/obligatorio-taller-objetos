@@ -98,7 +98,18 @@ namespace Dominio.Repositorios
         
         #endregion
 
-
+        public IList<Persona> DatosPersonales 
+        {
+            get
+            {
+                IList<Persona> datosPersonales = new List<Persona>();
+                foreach (Cliente unC in ListaClientes)
+                {
+                    datosPersonales.Add(unC.Persona);
+                }
+                return datosPersonales;
+            }
+        }
 
 
         

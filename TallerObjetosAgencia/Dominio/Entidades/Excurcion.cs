@@ -116,7 +116,7 @@ namespace Dominio
         {
             foreach(Pasajero unP in listaPasajeros)
             {
-                if (unP != null)
+                if (unP != null && !this.Pasajeros.Contains(unP))
                 {
                     this.Pasajeros.Add(unP);
                     unP.Puntos += this.Puntos;

@@ -23,7 +23,7 @@ namespace Dominio
         public byte Stock { get; set; }
         public double Puntos { get; set; }
         public IList<Pasajero> Pasajeros { get; set; }
-        
+        public string ParaListado { get { return this.ToString(); } }
         #endregion
 
         #region Constructor

@@ -2,13 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <asp:GridView ID="grdDestinos" runat="server">
-        </asp:GridView>
+     <asp:Label ID="lblDestinos" runat="server" Text="Destinos"></asp:Label>
+     <br />
+     <asp:ListBox ID="lbxDestinos" runat="server"></asp:ListBox>
         <br />
         <asp:Label ID="LblExcurciones" runat="server" Text="Excursiones"></asp:Label>
         <br />
-        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+        <asp:ListBox ID="lbxExcurciones" runat="server"></asp:ListBox>
      <br />
+     <asp:Button ID="btnListar" runat="server" OnClick="btnListar_Click" Text="Listar" />
+     <br />
+     <br />
+     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <br />
     
 </asp:Content>

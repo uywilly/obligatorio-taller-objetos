@@ -13,13 +13,22 @@ namespace PresentacionWeb {
     public partial class ExcurcionDestino {
         
         /// <summary>
-        /// grdDestinos control.
+        /// lblDestinos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdDestinos;
+        protected global::System.Web.UI.WebControls.Label lblDestinos;
+        
+        /// <summary>
+        /// lbxDestinos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbxDestinos;
         
         /// <summary>
         /// LblExcurciones control.
@@ -31,12 +40,30 @@ namespace PresentacionWeb {
         protected global::System.Web.UI.WebControls.Label LblExcurciones;
         
         /// <summary>
-        /// ListBox1 control.
+        /// lbxExcurciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.ListBox lbxExcurciones;
+        
+        /// <summary>
+        /// btnListar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnListar;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

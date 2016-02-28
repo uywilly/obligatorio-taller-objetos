@@ -103,7 +103,7 @@ namespace Dominio.Repositorios
             return unaE;
         }
         
-        public Destino FindDestinoById(string id)
+        public Destino FindDestinoById(string id)//id destino
         {
             Destino unD = null;
             int i = 0;
@@ -113,6 +113,16 @@ namespace Dominio.Repositorios
                 i++;
             }
             return unD;
+        }
+
+        public IList<Excurcion> FindExcurcionesByDestino(string idDestino)
+        {
+            IList<Excurcion> excurciones = new List<Excurcion>();
+            foreach(Excurcion ex in this.ListaExcurciones)
+            {
+                if (ex.BuscarDestino(idDestino) != null) excurciones.Add(ex);
+            }
+            return excurciones;
         }
         #endregion
 

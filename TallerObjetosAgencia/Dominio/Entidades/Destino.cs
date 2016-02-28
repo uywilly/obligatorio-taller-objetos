@@ -17,7 +17,7 @@ namespace Dominio
         public string Ciudad { get; set; }
         public string Pais { get; set; }
         public string Id { get; set; }
-
+        public string ParaListado { get { return this.ToString(); } }
         #endregion
 
         #region Constructor 
@@ -41,7 +41,7 @@ namespace Dominio
         #region ToString-Equals
         public override string ToString()
         {
-            return "Destino: " + this.Nombre + " " + this.Ciudad +" , " + this.Pais;
+            return "Destino: " + this.Nombre + " , " + this.Ciudad +" , " + this.Pais + " Id " + this.Id;
         }
         public override bool Equals(object obj)
         {

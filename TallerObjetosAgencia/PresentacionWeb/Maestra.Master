@@ -21,6 +21,7 @@
                     <asp:MenuItem NavigateUrl="~/ExcurcionDestino.aspx" Text="Excursiones por Destino" Value="Excursiones por Destino"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/ExcurcionFechas.aspx" Text="Excursiones entre Fecha" Value="Excursiones entre Fecha"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/RankingPasajeros.aspx" Text="Ranking puntaje" Value="Ranking puntaje"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/ListadosGenerales.aspx" Text="Listados Generales" Value="Listados Generales"></asp:MenuItem>
                 </asp:MenuItem>
             </Items>
             </asp:Menu><br />

@@ -43,6 +43,7 @@ namespace Dominio.Repositorios
                 {
                     this.ListaContratos.Add(entity);
                     unaE.AgregarPasajeros(entity.ListaPasajeros);
+                    unaE.Stock -= (Byte)entity.ListaPasajeros.Count;
                     retorno = true;
                 }
             }

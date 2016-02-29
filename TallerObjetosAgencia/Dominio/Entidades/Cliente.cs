@@ -15,6 +15,7 @@ namespace Dominio
 
         #region Properties
         public string DireccionFactura { get; set; }
+        public string ParaListado { get { return this.ToString(); } }
         #endregion
         
         #region Constructor

@@ -15,7 +15,8 @@ namespace Dominio
 
         #region Properties
         private static string localidad = "Uruguay";
-        public double Descuento { get; set; }
+        public decimal Descuento { get; set; }
+        public string ParaListado { get { return this.ToString(); } }
         public static string Localidad
         {
             get { return Nacional.localidad; }
@@ -28,7 +29,7 @@ namespace Dominio
             : base()
         {
         }
-        public Nacional(string codigo, string descripcion, DateTime fechaComienzo, IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, IList<Pasajero> pasajeros, double descuento)
+        public Nacional(string codigo, string descripcion, DateTime fechaComienzo, IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, IList<Pasajero> pasajeros, decimal descuento)
             : base(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros)
         {
             this.Descuento = descuento;
@@ -50,14 +51,16 @@ namespace Dominio
         public override bool Validar()
         {
             bool retorno = false;
-            if(base.Validar() && !Double.IsNaN(this.Descuento) && this.Descuento > 0)
+            if (base.Validar() && this.Descuento > 0)
             {
-                Destino unD = null;
                 foreach (Itinerario unI in this.HojaRuta)
                 {
-                    if (unI.Destino.Pais == Nacional.localidad)
-                        retorno = true;
-                    else return false;
+                    if (unI != null)
+                    {
+                        if (unI.Destino.Pais == Nacional.Localidad)
+                            retorno = true;
+                        else return false;
+                    }
                 }
             }
 
@@ -67,7 +70,7 @@ namespace Dominio
         public override List<Excurcion.ErroresAltaExcurcion> Validar2()
         {
             List<Excurcion.ErroresAltaExcurcion> retorno = new List<Excurcion.ErroresAltaExcurcion>();
-            if (base.Validar2().Contains(Excurcion.ErroresAltaExcurcion.EXITO) && !Double.IsNaN(this.Descuento) && this.Descuento > 0)
+            if (base.Validar2().Contains(Excurcion.ErroresAltaExcurcion.EXITO) && this.Descuento > 0)
             {
                 retorno.Add(ErroresAltaExcurcion.EXITO);
                 return retorno; 
@@ -77,6 +80,14 @@ namespace Dominio
         }
 
 
+
+        #endregion
+
+        #region Metodos
+        public override decimal CostoExcurcion()
+        {
+            return base.CostoExcurcion() - (base.CostoExcurcion() * this.Descuento);
+        }
 
         #endregion
     }

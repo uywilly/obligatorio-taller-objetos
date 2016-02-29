@@ -70,15 +70,50 @@ namespace PresentacionWeb
                     if (cliente != null)
                     {
                         tope++;
-                        
                     }
                 }
             }
-
-            //Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id
             if(FachadaAgencia.Instancia.AgregarContrato(ex,cliente,listaPasajeros,System.DateTime.Today,"12321")) 
                 lblMensaje.Text="EXITO";
             else lblMensaje.Text = "ERROR";
+        }
+
+        protected void btnCosto_Click(object sender, EventArgs e)
+        {
+            Excurcion ex = null;
+            Cliente cliente = null;
+            IList<Pasajero> listaPasajeros = new List<Pasajero>();
+            string id = txtCodigo.Text;
+            byte tope = 0;
+
+            foreach (GridViewRow row in this.grExcurciones.Rows)
+            {
+                CheckBox unChk = (CheckBox)row.FindControl("chkExcurcion");
+                if (unChk.Checked && tope < 1)
+                {
+                    ex = FachadaAgencia.Instancia.RepoExcurciones.FindById(row.Cells[0].Text);
+                    if (ex != null)
+                    {
+                        tope++;
+                        foreach (GridViewRow row2 in this.grPasajeros.Rows)
+                        {
+
+                            CheckBox unChk2 = (CheckBox)row2.FindControl("chkPasajeros");
+                            if (unChk2.Checked)
+                            {
+
+                                if (FachadaAgencia.Instancia.RepoPasajeros.FindById(row2.Cells[2].Text) != null)
+                                {
+                                    listaPasajeros.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById(row2.Cells[2].Text));
+                                }
+                            }
+                        }
+                        ex.AgregarPasajeros(listaPasajeros);
+                    }
+                }
+            }
+            tope = 0;
+            lblMensaje.Text = ex.CostoExcurcion().ToString();
         }
 
     }

@@ -12,7 +12,8 @@ namespace Dominio
     [Serializable]
     public class Internacional : Excurcion,IEntity
     {
-        private static double seguro;
+        private static decimal seguro;
+        public string ParaListado { get { return this.ToString(); } }
 
         #region Constructor
         public Internacional(string codigo, string descripcion, DateTime fechaComienzo, IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, IList<Pasajero> pasajeros)
@@ -24,7 +25,7 @@ namespace Dominio
         #endregion
 
         #region Properties
-        public static double Seguro
+        public static decimal Seguro
         {
             get { return Internacional.seguro; }
             set { Internacional.seguro = value; }
@@ -59,5 +60,10 @@ namespace Dominio
 
 
         #endregion
+
+        public override decimal CostoExcurcion()
+        {
+            return base.CostoExcurcion() + seguro;
+        }
     }
 }

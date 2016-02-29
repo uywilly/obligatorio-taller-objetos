@@ -48,7 +48,7 @@ namespace Dominio
             return base.Equals(obj);
         }
         #endregion
-        
+
 
     }
 }

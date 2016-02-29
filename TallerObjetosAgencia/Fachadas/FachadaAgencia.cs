@@ -78,21 +78,13 @@ namespace Fachadas
 
         public void GuardarParametros(string delimitador)
         {
-            try
+            using (StreamWriter sw = new StreamWriter("parametros.txt", true))
             {
-                using (StreamWriter sw = new StreamWriter("parametros.txt", true))
-                {
-                    sw.WriteLine("Seguro"  + delimitador + Internacional.Seguro);
-                    sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
-                    
-                }
+                sw.WriteLine("Seguro" + delimitador + Internacional.Seguro);
+                sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
+
             }
-            catch (FileNotFoundException) { throw; }
-            catch (PathTooLongException) { throw; }
-            catch (InvalidDataException) { throw; }
-            catch (DirectoryNotFoundException) { throw; }
-            catch (DriveNotFoundException) { throw; }
-            catch (Exception) { throw; }
+            
         }
 
         private double ObtenerDesdeString(string dato, string delimitador)
@@ -104,12 +96,13 @@ namespace Fachadas
         public void Leer(string delimitador)
         {
             StreamReader sr = null;
+            if (!Directory.Exists(ruta)) return;
             try
             {
                 using (sr = new StreamReader(ArchivoParametros))
                 {
                     string linea = sr.ReadLine();
-                    Double seguro = Double.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                    Decimal seguro = Decimal.Parse(linea.Split(delimitador.ToCharArray())[1]);
                     linea = sr.ReadLine();
                     int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
                     Internacional.Seguro = seguro;
@@ -123,6 +116,7 @@ namespace Fachadas
             catch (DriveNotFoundException) { throw; }
             catch (Exception) { throw; }
         }
+    
 
         #endregion
 
@@ -181,7 +175,7 @@ namespace Fachadas
         #region ManejoExcurciones
         public bool AgregarExcurcionNac(string codigo, string descripcion, DateTime fechaComienzo, 
             IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos, 
-            IList<Pasajero> pasajeros, double descuento)
+            IList<Pasajero> pasajeros, decimal descuento)
         {
             bool retorno = false;
             Nacional unaE = new Nacional(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros, descuento);

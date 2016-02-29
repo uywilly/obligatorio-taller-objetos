@@ -135,6 +135,15 @@ namespace Dominio
             }
             return unD; 
         }
+        public virtual decimal CostoExcurcion()
+        {
+            decimal costo = 0;
+            foreach (Itinerario unI in this.HojaRuta)
+            {
+                costo += unI.CostoDiario * (unI.DiasEstadia + this.DiasTraslado);
+            }
+            return costo * this.Pasajeros.Count;
+        }
         #endregion
     }
 }

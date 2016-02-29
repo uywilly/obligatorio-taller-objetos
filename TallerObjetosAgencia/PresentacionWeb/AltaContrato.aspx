@@ -54,8 +54,8 @@
     </asp:GridView>
     <br />
     <br />
-    <br />
-    <asp:Button ID="btnAgregar" runat="server" Text="Alta Contrato" OnClick="btnAgregar_Click" />
+    <asp:Button ID="btnCosto" runat="server" OnClick="btnCosto_Click" Text="Calcular Costo" />
+&nbsp;<asp:Button ID="btnAgregar" runat="server" Text="Alta Contrato" OnClick="btnAgregar_Click" />
     <br />
     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <br />

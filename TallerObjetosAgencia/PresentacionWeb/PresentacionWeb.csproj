@@ -66,6 +66,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Js\AltaExcurcion.js" />
     <Content Include="Js\jquery-1.11.3.js" />
+    <Content Include="ListadosGenerales.aspx" />
     <Content Include="RankingPasajeros.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -114,6 +115,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListadosGenerales.aspx.cs">
+      <DependentUpon>ListadosGenerales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadosGenerales.aspx.designer.cs">
+      <DependentUpon>ListadosGenerales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Maestra.Master.cs">
       <DependentUpon>Maestra.Master</DependentUpon>

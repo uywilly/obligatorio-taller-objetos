@@ -18,6 +18,7 @@ namespace Dominio
         public IList<Pasajero> ListaPasajeros { get; set; }
         public string Id { get; set; }
         public DateTime FechaContrato { get; set; }
+        public string ParaListado { get { return this.ToString(); } }
         #endregion
 
         #region Constructor 

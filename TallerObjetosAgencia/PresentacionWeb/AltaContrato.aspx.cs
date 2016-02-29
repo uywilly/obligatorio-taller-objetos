@@ -56,7 +56,7 @@ namespace PresentacionWeb
                                 }
                             }
                         }
-                        ex.AgregarPasajeros(listaPasajeros);
+                        //ex.AgregarPasajeros(listaPasajeros);
                     }
                 }
             }
@@ -73,7 +73,7 @@ namespace PresentacionWeb
                     }
                 }
             }
-            if(FachadaAgencia.Instancia.AgregarContrato(ex,cliente,listaPasajeros,System.DateTime.Today,"12321")) 
+            if(FachadaAgencia.Instancia.AgregarContrato(ex,cliente,listaPasajeros,System.DateTime.Today,id)) 
                 lblMensaje.Text="EXITO";
             else lblMensaje.Text = "ERROR";
         }

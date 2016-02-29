@@ -18,7 +18,7 @@ namespace PresentacionWeb
         protected void Application_Start(object sender, EventArgs e)
         {
             FachadaAgencia.Instancia.DeserializarTodo();
-            //FachadaAgencia.Instancia.Leer(":"); 
+            FachadaAgencia.Instancia.Leer(":"); 
 
             #region DATOS DE PRUEBA
             ////crear destinos
@@ -61,7 +61,11 @@ namespace PresentacionWeb
             //FachadaAgencia.Instancia.AgregarPersona("Susana", "Mitre", "1234567-6");
             //FachadaAgencia.Instancia.AgregarPersona("Carmen", "Ejido", "1234567-7");
             //FachadaAgencia.Instancia.AgregarPersona("Andres", "Roco", "1234567-8");
-
+            FachadaAgencia.Instancia.AgregarPersona("Andres", "Roco", "1234567-9");
+            FachadaAgencia.Instancia.AgregarPersona("Andres", "Lescano", "1234561-0");
+            FachadaAgencia.Instancia.AgregarPersona("Tabare", "Cardozo", "1234561-1");
+            FachadaAgencia.Instancia.AgregarPersona("Juan", "Cabrera", "1234561-2");
+            FachadaAgencia.Instancia.AgregarPersona("Marcos", "Rivero", "1234561-3");
 
             //FachadaAgencia.Instancia.AgregarCliente("Juan", "Lopez", "1234567-1", "Ejido 1234");
             //FachadaAgencia.Instancia.AgregarCliente("Jose", "Gomez", "1234567-2", "Andes 3215");
@@ -73,6 +77,11 @@ namespace PresentacionWeb
             //FachadaAgencia.Instancia.AgregarPasajero("Susana", "Mitre", "1234567-6", 321);
             //FachadaAgencia.Instancia.AgregarPasajero("Carmen", "Ejido", "1234567-7", 201);
             //FachadaAgencia.Instancia.AgregarPasajero("Andres", "Roco", "1234567-8", 1);
+            FachadaAgencia.Instancia.AgregarPasajero("Andres", "Roco", "1234567-9", 5);
+            FachadaAgencia.Instancia.AgregarPasajero("Andres", "Lescano", "1234561-0", 2200);
+            FachadaAgencia.Instancia.AgregarPasajero("Tabare", "Cardozo", "1234561-1", 132);
+            FachadaAgencia.Instancia.AgregarPasajero("Juan", "Cabrera", "1234561-2", 322);
+            FachadaAgencia.Instancia.AgregarPasajero("Marcos", "Rivero", "1234561-3", 324);
 
 
             //IList<Pasajero> pasajeros1 = new List<Pasajero>();

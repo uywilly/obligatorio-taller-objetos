@@ -16,4 +16,12 @@
     <br />
     <asp:ListBox ID="ListBox5" runat="server"></asp:ListBox>
     <br />
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <br />
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    <br />
+    <br />
+    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+    <br />
 </asp:Content>

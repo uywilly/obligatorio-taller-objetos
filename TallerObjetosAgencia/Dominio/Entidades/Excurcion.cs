@@ -124,6 +124,16 @@ namespace Dominio
             }
             
         }
+        public bool BuscarPasajeros(IList<Pasajero> listaPasajeros)
+        {
+            bool retorno = false;
+            foreach (Pasajero unP in listaPasajeros)
+            {
+                if (unP != null && this.Pasajeros.Contains(unP)) retorno = true;
+            }
+            return retorno;
+
+        }
         public Destino BuscarDestino(string id)
         {
             Destino unD = null;

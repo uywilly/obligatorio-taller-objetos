@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Fachadas;
+using Dominio;
 
 namespace PresentacionWeb
 {
@@ -48,6 +49,12 @@ namespace PresentacionWeb
                 this.ListBox5.DataValueField = "Id";
                 this.ListBox5.DataBind();
                 this.ListBox5.SelectedIndex = 0;
+
+                Label1.Text = "ULTIMO PASAJERO " + Pasajero.Ultimo;
+
+                Label2.Text = "SEGURO INTERNACIONAL " + Internacional.Seguro;
+
+                Label3.Text = "LOCALIDAD NACIONAL " + Nacional.Localidad;
             }
 
 

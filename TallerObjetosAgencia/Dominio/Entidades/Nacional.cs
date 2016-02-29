@@ -86,7 +86,7 @@ namespace Dominio
         #region Metodos
         public override decimal CostoExcurcion()
         {
-            return base.CostoExcurcion() - (base.CostoExcurcion() * this.Descuento);
+            return base.CostoExcurcion() - (base.CostoExcurcion() * this.Descuento)/100;
         }
 
         #endregion

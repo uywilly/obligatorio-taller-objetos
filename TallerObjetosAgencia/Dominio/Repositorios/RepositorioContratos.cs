@@ -41,10 +41,13 @@ namespace Dominio.Repositorios
                 Excurcion unaE = entity.Excurcion;
                 if (unaE.Stock >= entity.ListaPasajeros.Count)
                 {
+                    if(!unaE.BuscarPasajeros(entity.ListaPasajeros))
+                    {
                     this.ListaContratos.Add(entity);
                     unaE.AgregarPasajeros(entity.ListaPasajeros);
                     unaE.Stock -= (Byte)entity.ListaPasajeros.Count;
                     retorno = true;
+                    }
                 }
             }
 

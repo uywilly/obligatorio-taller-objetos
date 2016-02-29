@@ -78,13 +78,20 @@ namespace Fachadas
 
         public void GuardarParametros(string delimitador)
         {
-            using (StreamWriter sw = new StreamWriter("parametros.txt", true))
+            try
             {
-                sw.WriteLine("Seguro" + delimitador + Internacional.Seguro);
-                sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
+                using (StreamWriter sw = new StreamWriter("parametros.txt", true))
+                {
+                    sw.WriteLine("Seguro" + delimitador + Internacional.Seguro);
+                    sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
+
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw;
 
             }
-            
         }
 
         private double ObtenerDesdeString(string dato, string delimitador)

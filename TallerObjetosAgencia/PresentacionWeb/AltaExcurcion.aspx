@@ -8,6 +8,8 @@
 &nbsp;<asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCodigo" ErrorMessage="Error al ingresar el codigo">*</asp:RequiredFieldValidator>
     <br />
+    <asp:CheckBox ID="chkNacional" runat="server" Text="Excursion nacional?" />
+    <br />
     <asp:Label ID="lblDesc" runat="server" Text="Descripcion"></asp:Label>
     <br />
     <asp:TextBox ID="txtDesc" runat="server" Height="120px" TextMode="MultiLine" Width="250px"></asp:TextBox>

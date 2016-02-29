@@ -14,7 +14,13 @@ namespace Dominio
     {
 
         #region Properties
-        public double Descuento { get; set; }  
+        private static string localidad = "Uruguay";
+        public double Descuento { get; set; }
+        public static string Localidad
+        {
+            get { return Nacional.localidad; }
+            set { Nacional.localidad = value; }
+        }
         #endregion
 
         #region Constructor
@@ -43,7 +49,20 @@ namespace Dominio
         #region Validaciones
         public override bool Validar()
         {
-            return (base.Validar() && !Double.IsNaN(this.Descuento) && this.Descuento > 0);
+            bool retorno = false;
+            if(base.Validar() && !Double.IsNaN(this.Descuento) && this.Descuento > 0)
+            {
+                Destino unD = null;
+                foreach (Itinerario unI in this.HojaRuta)
+                {
+                    if (unI.Destino.Pais == Nacional.localidad)
+                        retorno = true;
+                    else return false;
+                }
+            }
+
+            return retorno; 
+            
         }
         public override List<Excurcion.ErroresAltaExcurcion> Validar2()
         {

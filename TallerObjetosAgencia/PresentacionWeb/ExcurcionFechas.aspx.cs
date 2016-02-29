@@ -15,6 +15,8 @@ namespace PresentacionWeb
         {
             if (!IsPostBack)
             {
+                Calendar1.SelectedDate = Calendar1.TodaysDate;
+                Calendar2.SelectedDate = Calendar2.TodaysDate;
             }
 
         }

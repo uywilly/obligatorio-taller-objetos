@@ -188,6 +188,15 @@ namespace Fachadas
             retorno = (this.RepoExcurciones.Add(unaE) ? true : false);
             return retorno;
         }
+        public bool AgregarExcurcionInt(string codigo, string descripcion, DateTime fechaComienzo,
+            IList<Itinerario> hojaRuta, byte diasTraslado, byte stock, double puntos,
+            IList<Pasajero> pasajeros)
+        {
+            bool retorno = false;
+            Internacional unaI = new Internacional(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros);
+            retorno = (this.RepoExcurciones.Add(unaI) ? true : false);
+            return retorno;
+        }
         #endregion
 
         #region ManejoDestinos

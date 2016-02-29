@@ -17,6 +17,7 @@ namespace PresentacionWeb
             {
                 this.grdDestinos.DataSource = FachadaAgencia.Instancia.RepoDestinos.ListaDestinos;
                 this.grdDestinos.DataBind();
+                calFini.SelectedDate = calFini.TodaysDate;
             }
 
         }
@@ -53,7 +54,16 @@ namespace PresentacionWeb
                     } 
                 }
             }
-            FachadaAgencia.Instancia.AgregarExcurcionNac(codigo, desc, fechaIni, hojaRuta, diasTraslado, stock, puntos, pasajeros, 10);
+            if (chkNacional.Checked)
+            {
+                if(FachadaAgencia.Instancia.AgregarExcurcionNac(codigo, desc, fechaIni, hojaRuta, diasTraslado, stock, puntos, pasajeros, 10)) lblMensaje.Text="EXITO";
+                else lblMensaje.Text = "FALLO";
+            }
+            else
+            {
+                if (FachadaAgencia.Instancia.AgregarExcurcionInt(codigo, desc, fechaIni, hojaRuta, diasTraslado, stock, puntos, pasajeros)) lblMensaje.Text = "EXITO";
+                else lblMensaje.Text = "FALLO";
+            }
 
         }
     }

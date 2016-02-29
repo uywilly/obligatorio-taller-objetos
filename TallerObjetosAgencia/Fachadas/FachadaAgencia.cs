@@ -191,6 +191,11 @@ namespace Fachadas
             retorno = (this.RepoExcurciones.Add(unaI) ? true : false);
             return retorno;
         }
+        public decimal CalcularCosto(Excurcion ex, IList<Pasajero> pasajeros)
+        {
+
+            return ex.CostoExcurcion() * pasajeros.Count;
+        }
         #endregion
 
         #region ManejoDestinos

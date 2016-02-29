@@ -108,12 +108,11 @@ namespace PresentacionWeb
                                 }
                             }
                         }
-                        ex.AgregarPasajeros(listaPasajeros);
                     }
                 }
             }
             tope = 0;
-            lblMensaje.Text = ex.CostoExcurcion().ToString();
+            lblMensaje.Text = FachadaAgencia.Instancia.CalcularCosto(ex, listaPasajeros).ToString();
         }
 
     }

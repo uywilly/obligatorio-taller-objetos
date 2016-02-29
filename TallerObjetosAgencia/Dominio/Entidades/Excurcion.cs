@@ -142,7 +142,8 @@ namespace Dominio
             {
                 costo += unI.CostoDiario * (unI.DiasEstadia + this.DiasTraslado);
             }
-            return costo * this.Pasajeros.Count;
+            return costo;
+
         }
         #endregion
     }

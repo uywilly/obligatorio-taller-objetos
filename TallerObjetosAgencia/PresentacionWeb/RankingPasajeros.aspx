@@ -4,8 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblPasajeros" runat="server" Text="Top 10 Pasajeros"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server">
-    </asp:GridView>
+    <asp:ListBox ID="lbxRanking" runat="server"></asp:ListBox>
     <br />
     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
 </asp:Content>

@@ -76,7 +76,7 @@ namespace PresentacionWeb
             }
 
             //Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id
-            if(FachadaAgencia.Instancia.AgregarContrato(ex,cliente,listaPasajeros,"12321")) 
+            if(FachadaAgencia.Instancia.AgregarContrato(ex,cliente,listaPasajeros,System.DateTime.Today,"12321")) 
                 lblMensaje.Text="EXITO";
             else lblMensaje.Text = "ERROR";
         }

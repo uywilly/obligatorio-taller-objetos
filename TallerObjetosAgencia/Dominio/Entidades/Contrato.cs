@@ -17,6 +17,7 @@ namespace Dominio
         public Cliente Cliente { get; set; }
         public IList<Pasajero> ListaPasajeros { get; set; }
         public string Id { get; set; }
+        public DateTime FechaContrato { get; set; }
         #endregion
 
         #region Constructor 
@@ -26,14 +27,16 @@ namespace Dominio
             this.Cliente = null;
             this.ListaPasajeros = null;
             this.Id = "";
+            FechaContrato = System.DateTime.Today;
 
         }
-        public Contrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
+        public Contrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, DateTime fechaContrato,string id)
         {
             this.Excurcion = ex;
             this.Cliente = cliente;
             this.ListaPasajeros = listaPasajeros;
             this.Id = id;
+            this.FechaContrato = fechaContrato;
 
         }
         #endregion
@@ -54,7 +57,7 @@ namespace Dominio
         #region Validaciones
         public bool Validar()
         {
-            return (this.Excurcion != null && this.ListaPasajeros.Count > 0);
+            return (this.Excurcion != null && this.ListaPasajeros.Count > 0 && this.FechaContrato==System.DateTime.Today);
         }
         public List<Contrato.ErroresAltaContrato> Validar2()
         {

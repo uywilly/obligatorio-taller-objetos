@@ -64,12 +64,13 @@ namespace Dominio.Repositorios
         public bool Update(Contrato entity)
         {
             bool retorno = false;
-            if (entity != null && this.ListaContratos.Contains(entity)&&entity.Validar())
+            if (entity != null && this.ListaContratos.Contains(entity) && entity.Validar())
             {
                 Contrato unC = this.ListaContratos.ElementAt(this.ListaContratos.IndexOf(entity));
                 unC.Cliente = entity.Cliente;
                 unC.Id = entity.Id;
                 unC.ListaPasajeros = entity.ListaPasajeros;
+                unC.FechaContrato = entity.FechaContrato;
                 retorno = true;
             }
 

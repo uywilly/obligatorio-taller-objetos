@@ -168,10 +168,10 @@ namespace Fachadas
         #endregion
 
         #region ManejoContratos
-        public bool AgregarContrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros, string id)
+        public bool AgregarContrato(Excurcion ex, Cliente cliente, IList<Pasajero> listaPasajeros,DateTime fechaContrato, string id)
         {
             bool retorno = false;
-            Contrato unC = new Contrato(ex, cliente, listaPasajeros, id);
+            Contrato unC = new Contrato(ex, cliente, listaPasajeros,fechaContrato, id);
             retorno = (this.RepoContratos.Add(unC) ? true : false);            
             return retorno;
         }

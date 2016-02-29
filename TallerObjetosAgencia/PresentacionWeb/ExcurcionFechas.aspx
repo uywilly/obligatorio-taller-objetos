@@ -27,10 +27,12 @@
         <WeekendDayStyle BackColor="#FFFFCC" />
     </asp:Calendar>
     <br />
+    <asp:Button ID="btnMostrar" runat="server" Text="Listar Excrusiones" OnClick="btnMostrar_Click" />
+    <br />
+    <br />
     <asp:Label ID="lblExcurciones" runat="server" Text="Excursiones"></asp:Label>
     <asp:GridView ID="grdExcurciones" runat="server">
     </asp:GridView>
-    <asp:Button ID="btnMostrar" runat="server" Text="Listar Excrusiones" />
     <br />
     <br />
     <asp:Label ID="lblMensaje" runat="server"></asp:Label>

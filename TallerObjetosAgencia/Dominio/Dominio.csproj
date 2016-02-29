@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Contrato.cs" />
+    <Compile Include="Entidades\ComparadoraPuntaje.cs" />
     <Compile Include="Entidades\Destino.cs" />
     <Compile Include="Entidades\Excurcion.cs" />
     <Compile Include="Entidades\IEntity.cs" />

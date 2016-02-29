@@ -20,68 +20,67 @@ namespace PresentacionWeb
             FachadaAgencia.Instancia.DeserializarTodo();
             //FachadaAgencia.Instancia.Leer(":"); 
 
-            #region DESTINOS
+            #region DATOS DE PRUEBA
             ////crear destinos
-            //FachadaAgencia.Instancia.AgregarDestino("D1-MN", "MN", "Mexico", "1");
-            //FachadaAgencia.Instancia.AgregarDestino("D2-NY", "NY", "EEUU", "2");
-            //FachadaAgencia.Instancia.AgregarDestino("D2-AZ", "AZ", "EEUU", "3");
-
-            //Destino d1 = FachadaAgencia.Instancia.RepoDestinos.FindById("1");
-            //Destino d2 = FachadaAgencia.Instancia.RepoDestinos.FindById("2");
-            //Destino d3 = FachadaAgencia.Instancia.RepoDestinos.FindById("3");
-            ///*
-            //foreach (Destino d in FachadaAgencia.Instancia.RepoDestinos.ListaDestinos)
-            //{
-            //    Console.WriteLine(d.ToString());
-            //}
-            //*/
-            //#endregion
-            //#region ITINERARIO + HOJA DE RUTA
-            //Itinerario i1 = new Itinerario(3, 90, d3, "1");
-            //Itinerario i2 = new Itinerario(3, 90, d3, "1");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 1", "Cuzco", "Perú", "1");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 2", "Hong Kong", "China", "2");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 3", "Singapur", "Malasia", "3");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 4", "Bangkok", "Tailandia", "4");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 5", "Londres", "Inglaterra", "5");
+            //FachadaAgencia.Instancia.AgregarDestino("Destino 6", "Macau", "China", "6");
+            
+            //Itinerario i1 = new Itinerario(5, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("1"), "1");
+            //Itinerario i2 = new Itinerario(10, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("2"), "1");
+            //Itinerario i3 = new Itinerario(8, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("3"), "1");
+            //Itinerario i4 = new Itinerario(4, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("4"), "1");
+            //Itinerario i5 = new Itinerario(6, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("5"), "1");
+            //Itinerario i6 = new Itinerario(9, 120, FachadaAgencia.Instancia.RepoDestinos.FindById("6"), "1");
             //IList<Itinerario> hoja1 = new List<Itinerario>();
             //hoja1.Add(i1);
-            //hoja1.Add(i2);
-
-            //Itinerario i3 = new Itinerario(3, 90, d3, "1");
+            
             //IList<Itinerario> hoja2 = new List<Itinerario>();
+            //hoja2.Add(i2);
             //hoja2.Add(i3);
-            //#endregion
-            //#region MyRegion
+            //hoja2.Add(i4);
+            //hoja2.Add(i6);
+
             //FachadaAgencia.Instancia.AgregarPersona("Juan", "Lopez", "1234567-1");
-            //FachadaAgencia.Instancia.AgregarPersona("Jose", "Lopez", "1234567-2");
-            //FachadaAgencia.Instancia.AgregarPersona("Ana", "Lopez", "1234567-3");
-            //FachadaAgencia.Instancia.AgregarPersona("Lujan", "Lopez", "1234567-4");
+            //FachadaAgencia.Instancia.AgregarPersona("Jose", "Gomez", "1234567-2");
+            //FachadaAgencia.Instancia.AgregarPersona("Ana", "Mendez", "1234567-3");
+            //FachadaAgencia.Instancia.AgregarPersona("Lucas", "Acevedo", "1234567-4");
+            //FachadaAgencia.Instancia.AgregarPersona("Marcos", "Gonsalez", "1234567-5");
+            //FachadaAgencia.Instancia.AgregarPersona("Susana", "Mitre", "1234567-6");
+            //FachadaAgencia.Instancia.AgregarPersona("Carmen", "Ejido", "1234567-7");
+            //FachadaAgencia.Instancia.AgregarPersona("Andres", "Roco", "1234567-8");
 
 
             //FachadaAgencia.Instancia.AgregarCliente("Juan", "Lopez", "1234567-1", "Ejido 1234");
+            //FachadaAgencia.Instancia.AgregarCliente("Jose", "Gomez", "1234567-2","Andes 3215");
+            //FachadaAgencia.Instancia.AgregarCliente("Ana", "Mendez", "1234567-3","Yi 2132");
 
             //FachadaAgencia.Instancia.AgregarPasajero("Juan", "Lopez", "1234567-1", 0);
-            //FachadaAgencia.Instancia.AgregarPasajero("Jose", "Lopez", "1234567-2", 0);
-            //FachadaAgencia.Instancia.AgregarPasajero("Ana", "Lopez", "1234567-3", 0);
-            //FachadaAgencia.Instancia.AgregarPasajero("Lujan", "Lopez", "1234567-4", 0);
+            //FachadaAgencia.Instancia.AgregarPasajero("Lucas", "Acevedo", "1234567-4",100);
+            //FachadaAgencia.Instancia.AgregarPasajero("Marcos", "Gonsalez", "1234567-5",25);
+            //FachadaAgencia.Instancia.AgregarPasajero("Susana", "Mitre", "1234567-6",321);
+            //FachadaAgencia.Instancia.AgregarPasajero("Carmen", "Ejido", "1234567-7",201);
+            //FachadaAgencia.Instancia.AgregarPasajero("Andres", "Roco", "1234567-8",1);
+
 
             //IList<Pasajero> pasajeros1 = new List<Pasajero>();
             //IList<Pasajero> pasajeros2 = new List<Pasajero>();
-            //FachadaAgencia.Instancia.AgregarExcurcionNac("1", "excurcion en usa", System.DateTime.Today, hoja1, 3, 5, 10, pasajeros1, 0.5);
-            //Excurcion ex1 = FachadaAgencia.Instancia.RepoExcurciones.FindById("1");
+            //FachadaAgencia.Instancia.AgregarExcurcionNac("1", "Locura en Peru", System.DateTime.Today, hoja1, 1, 5, 6, pasajeros1, 0.5);
+            //FachadaAgencia.Instancia.AgregarExcurcionNac("2", "Misterios de Asia", System.DateTime.Today, hoja2, 5 , 8, 10, pasajeros1, 0.5);
 
 
-            //Cliente cli1 = FachadaAgencia.Instancia.RepoClientes.FindById("1234567-1");
-            //Console.WriteLine(FachadaAgencia.Instancia.RepoPasajeros.ListaPasajeros.ToString());
-            //Console.WriteLine(FachadaAgencia.Instancia.RepoClientes.ListaClientes.ToString());
-            //Console.WriteLine(FachadaAgencia.Instancia.RepoPasajeros.ListaPasajeros.ToString());
-            //Console.WriteLine(ex1.Pasajeros.ToString());
-
+            ////Excurcion ex1 = FachadaAgencia.Instancia.RepoExcurciones.FindById("1");
             ////pasajeros1.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-1"));
             ////pasajeros1.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-2"));
-            //pasajeros2.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-3"));
-            //pasajeros2.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-4"));
+            ////pasajeros2.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-3"));
+            ////pasajeros2.Add(FachadaAgencia.Instancia.RepoPasajeros.FindById("1234567-4"));
 
 
 
-            //FachadaAgencia.Instancia.AgregarContrato(ex1, cli1, pasajeros2, "1");
-            //Console.WriteLine(FachadaAgencia.Instancia.RepoContratos.FindById("1").ToString());
+            ////FachadaAgencia.Instancia.AgregarContrato(ex1, cli1, pasajeros2, "1");
             #endregion
 
 

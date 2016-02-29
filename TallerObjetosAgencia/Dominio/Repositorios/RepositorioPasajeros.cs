@@ -96,8 +96,6 @@ namespace Dominio.Repositorios
             return unP;
         }
 
-        #endregion
-
         public IList<Persona> DatosPersonales
         {
             get
@@ -110,5 +108,9 @@ namespace Dominio.Repositorios
                 return datosPersonales;
             }
         }
+
+        #endregion
+
+        
     }
 }

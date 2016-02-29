@@ -10,13 +10,14 @@ using System.Runtime.Serialization;
 namespace Dominio
 {
     [Serializable]
-    public class Pasajero : Rol,IEntity
+    public class Pasajero : Rol, IEntity
     {
         
         #region Properties
         public double Puntos { get; set; }
         public static int Ultimo { get; set; }
         public int codigo { get; set; }
+        public string ParaListado { get { return base.ToString() + " Puntos " + this.Puntos; } }
         #endregion
 
         #region Constructor
@@ -34,7 +35,7 @@ namespace Dominio
         }
         #endregion   
 
-        #region ToString-Equals
+        #region ToString-Equals-CompareTo
         public override string ToString()
         {
             return "Pasajero: " + base.ToString() +" Puntos " + this.Puntos;
@@ -42,6 +43,10 @@ namespace Dominio
         public override bool Equals(object obj)
         {
             return base.Equals(obj);
+        }
+        public int CompareTo(Pasajero other)
+        {
+            return this.Puntos.CompareTo(other.Puntos);
         }
         #endregion
 
@@ -64,5 +69,7 @@ namespace Dominio
         }
 
         #endregion
+
+        
     }
 }

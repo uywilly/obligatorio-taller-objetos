@@ -16,7 +16,7 @@ namespace Fachadas
     [Serializable]
     public class FachadaAgencia
     {
-        private string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Archivos");
+        
 
         #region Listados(Repositorios)
         public RepositorioPersonas RepoPersonas { get; set; }
@@ -49,7 +49,9 @@ namespace Fachadas
         #endregion
 
         #region Manejo de Persistencia
+        private string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Archivos");
         private static string ArchivoParametros = AppDomain.CurrentDomain.BaseDirectory + "\\parametros.txt";
+        
 
         public void SerializarTodo()
         {
@@ -66,32 +68,30 @@ namespace Fachadas
         public void DeserializarTodo()
         {
             if (!Directory.Exists(ruta)) return;
-            using (FileStream streamR = new FileStream(Path.Combine(ruta, "agencia.dat"), FileMode.OpenOrCreate))
+            if (File.Exists(ruta))
             {
+                using (FileStream streamR = new FileStream(Path.Combine(ruta, "agencia.dat"), FileMode.OpenOrCreate))
+                {
 
-                BinaryFormatter formateador = new BinaryFormatter();
-                instancia = new FachadaAgencia();
-                instancia = formateador.Deserialize(streamR) as FachadaAgencia;
+                    BinaryFormatter formateador = new BinaryFormatter();
+                    instancia = new FachadaAgencia();
+                    instancia = formateador.Deserialize(streamR) as FachadaAgencia;
+                }
             }
         }
 
 
         public void GuardarParametros(string delimitador)
         {
-            try
+            if (File.Exists(ArchivoParametros))
             {
-                using (StreamWriter sw = new StreamWriter("parametros.txt", true))
+                using (StreamWriter sw = new StreamWriter(ArchivoParametros, false))
                 {
                     sw.WriteLine("Seguro" + delimitador + Internacional.Seguro);
                     sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
-
                 }
             }
-            catch (UnauthorizedAccessException)
-            {
-                throw;
-
-            }
+            //else { File.Create(AppDomain.CurrentDomain.BaseDirectory); }
         }
 
         private double ObtenerDesdeString(string dato, string delimitador)
@@ -103,25 +103,25 @@ namespace Fachadas
         public void Leer(string delimitador)
         {
             StreamReader sr = null;
-            if (!Directory.Exists(ruta)) return;
-            try
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory)) return;
+
             {
-                using (sr = new StreamReader(ArchivoParametros))
+                if (File.Exists(ArchivoParametros))
                 {
-                    string linea = sr.ReadLine();
-                    Decimal seguro = Decimal.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                    linea = sr.ReadLine();
-                    int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                    Internacional.Seguro = seguro;
-                    Pasajero.Ultimo = ultimo;
+                    using (sr = new StreamReader(ArchivoParametros))
+                    {
+
+                        string linea = sr.ReadLine().Trim();
+
+                            Decimal seguro = Decimal.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                            linea = sr.ReadLine();
+                            int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                            Internacional.Seguro = seguro;
+                            Pasajero.Ultimo = ultimo;
+
+                    }
                 }
             }
-            catch (FileNotFoundException) { throw; }
-            catch (PathTooLongException) { throw; }
-            catch (InvalidDataException) { throw; }
-            catch (DirectoryNotFoundException) { throw; }
-            catch (DriveNotFoundException) { throw; }
-            catch (Exception) { throw; }
         }
     
 
@@ -142,7 +142,12 @@ namespace Fachadas
         {
             bool retorno = false;
             Cliente unC = new Cliente(nombre, apellido, ci, direccionFactura);
-            retorno = (this.RepoClientes.Add(unC) ? true : false);
+            if (this.RepoClientes.Add(unC))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
         #endregion
@@ -152,7 +157,13 @@ namespace Fachadas
         {
             bool retorno = false;
             Pasajero unP = new Pasajero(nombre, apellido, ci, puntos);
-            retorno = (this.RepoPasajeros.Add(unP) ? true : false);
+            //retorno = (this.RepoPasajeros.Add(unP) ? true : false);
+            if(this.RepoPasajeros.Add(unP))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
         public bool ModificarPasajero(string nombre, string apellido, string ci, double puntos)
@@ -163,6 +174,8 @@ namespace Fachadas
             if (unP != null)
             {
                 retorno = instancia.RepoPasajeros.Update(unP);
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
             }
             return retorno;
         }
@@ -173,7 +186,12 @@ namespace Fachadas
         {
             bool retorno = false;
             Contrato unC = new Contrato(ex, cliente, listaPasajeros,fechaContrato, id);
-            retorno = (this.RepoContratos.Add(unC) ? true : false);            
+            if (this.RepoContratos.Add(unC))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
 
@@ -186,7 +204,12 @@ namespace Fachadas
         {
             bool retorno = false;
             Nacional unaE = new Nacional(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros, descuento);
-            retorno = (this.RepoExcurciones.Add(unaE) ? true : false);
+            if (this.RepoExcurciones.Add(unaE))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
         public bool AgregarExcurcionInt(string codigo, string descripcion, DateTime fechaComienzo,
@@ -195,7 +218,12 @@ namespace Fachadas
         {
             bool retorno = false;
             Internacional unaI = new Internacional(codigo, descripcion, fechaComienzo, hojaRuta, diasTraslado, stock, puntos, pasajeros);
-            retorno = (this.RepoExcurciones.Add(unaI) ? true : false);
+            if (this.RepoExcurciones.Add(unaI))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
         public decimal CalcularCosto(Excurcion ex, IList<Pasajero> pasajeros)
@@ -210,7 +238,12 @@ namespace Fachadas
         {
             bool retorno = false;
             Destino unD = new Destino(nombre, ciudad, pais, id);
-            retorno = RepoDestinos.Add(unD);
+            if (RepoDestinos.Add(unD))
+            {
+                retorno = true;
+                FachadaAgencia.Instancia.SerializarTodo();
+                FachadaAgencia.Instancia.GuardarParametros(":");
+            }
             return retorno;
         }
         public bool EliminarDestino(string nombre, string ciudad, string pais, string id)
@@ -224,6 +257,8 @@ namespace Fachadas
                 if(RepoExcurciones.FindDestinoById(id) == null)
                 {
                     retorno = RepoDestinos.Delete(unD);
+                    FachadaAgencia.Instancia.SerializarTodo();
+                    FachadaAgencia.Instancia.GuardarParametros(":");
                 }
             }
             return retorno;

@@ -39,6 +39,7 @@ namespace Dominio.Repositorios
                 this.ListaPasajeros.Add(entity);
                 retorno = true;
             }
+            else { --Pasajero.Ultimo; }
 
             return retorno;
         }

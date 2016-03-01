@@ -18,12 +18,14 @@ namespace PresentacionWeb
         protected void Button1_Click(object sender, EventArgs e)
         {
             FachadaAgencia.Instancia.SerializarTodo();
+            FachadaAgencia.Instancia.GuardarParametros(":"); 
 
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             FachadaAgencia.Instancia.DeserializarTodo();
+            FachadaAgencia.Instancia.Leer(":"); 
         }
     }
 }

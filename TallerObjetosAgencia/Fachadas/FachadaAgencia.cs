@@ -67,15 +67,18 @@ namespace Fachadas
 
         public void DeserializarTodo()
         {
-            if (!Directory.Exists(ruta)) return;
-            if (File.Exists(ruta))
+            if (!Directory.Exists(ruta)) Directory.CreateDirectory(ruta);
+            else
             {
-                using (FileStream streamR = new FileStream(Path.Combine(ruta, "agencia.dat"), FileMode.OpenOrCreate))
+                if (File.Exists(ruta))
                 {
+                    using (FileStream streamR = new FileStream(Path.Combine(ruta, "agencia.dat"), FileMode.OpenOrCreate))
+                    {
 
-                    BinaryFormatter formateador = new BinaryFormatter();
-                    instancia = new FachadaAgencia();
-                    instancia = formateador.Deserialize(streamR) as FachadaAgencia;
+                        BinaryFormatter formateador = new BinaryFormatter();
+                        instancia = new FachadaAgencia();
+                        instancia = formateador.Deserialize(streamR) as FachadaAgencia;
+                    }
                 }
             }
         }
@@ -91,7 +94,7 @@ namespace Fachadas
                     sw.WriteLine("Ultimo" + delimitador + Pasajero.Ultimo);
                 }
             }
-            //else { File.Create(AppDomain.CurrentDomain.BaseDirectory); }
+            else { File.Create(ArchivoParametros); }
         }
 
         private double ObtenerDesdeString(string dato, string delimitador)
@@ -104,7 +107,7 @@ namespace Fachadas
         {
             StreamReader sr = null;
             if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory)) return;
-
+            else
             {
                 if (File.Exists(ArchivoParametros))
                 {
@@ -113,14 +116,15 @@ namespace Fachadas
 
                         string linea = sr.ReadLine().Trim();
 
-                            Decimal seguro = Decimal.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                            linea = sr.ReadLine();
-                            int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
-                            Internacional.Seguro = seguro;
-                            Pasajero.Ultimo = ultimo;
+                        Decimal seguro = Decimal.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                        linea = sr.ReadLine();
+                        int ultimo = int.Parse(linea.Split(delimitador.ToCharArray())[1]);
+                        Internacional.Seguro = seguro;
+                        Pasajero.Ultimo = ultimo;
 
                     }
                 }
+                else { File.Create(ArchivoParametros); }
             }
         }
     
